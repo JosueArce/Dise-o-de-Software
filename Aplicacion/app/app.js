@@ -4,5 +4,9 @@ angular.module("appModule",['ngRoute'])
             templateUrl: "Templates/Home_View.html",
             controller: "Home_Controller"
         })
+        .when('/login',{
+            templateUrl: "Templates/Login_View.html",
+            controller: "Login_Controller"
+        })
     }])
 ;
