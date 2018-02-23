@@ -1,0 +1,54 @@
+/*Start - Styles for the Login View*/
+#container_div_login{
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 15%;
+    font-family: Arial;
+}
+/*--END--*/
+
+/*Start - Styles for the login card*/
+#card_login{
+    border-radius: 4px;
+    box-shadow: 0 0 20px 5px rgba(0,0,0,0.2), 0 0 0 rgba(0,0,0,0.24);
+}
+/*--END--*/
+
+/*Start - Facebook button style*/
+#btn_facebook_login{
+    background: #3B5998;
+    border-radius: 0;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #263961;
+}
+#btn_facebook_login:link, .btn-facebook:visited {
+    color: #fff;
+}
+#btn-facebook:active, .btn-facebook:hover {
+    background: #263961;
+    color: #fff;
+}
+/*--END--*/
+
+/*Google button style*/
+#btn_google_login{
+    background: #E93F2E;
+    border-radius: 0;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #b72213;
+}
+#btn_google_login:link, .btn-facebook:visited {
+    color: #fff;
+}
+#btn_google_login:hover{
+
+}
+#btn-google:active, .btn-facebook:hover {
+    background: #b72213;
+    color: #fff;
+}
+/*--END--*/

@@ -8,5 +8,6 @@ angular.module("appModule",['ngRoute'])
             templateUrl: "Templates/Login_View.html",
             controller: "Login_Controller"
         })
+        .otherwise({redirectTo : '/login'})
     }])
 ;
