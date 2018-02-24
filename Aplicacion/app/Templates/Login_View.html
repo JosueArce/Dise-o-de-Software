@@ -2,6 +2,16 @@
 <!--Ventana LOGIN
     Permite al usuario iniciar sesión o registrarse en el sistema mediante Google ó Facebook
 -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=807099809474052&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
 <div class="container" id="container_div_login">
     <div class="card" id="card_login">
         <div class="card-header">
@@ -17,12 +27,15 @@
         </div>
         <div class="card-body">
             <div class="row" >
-                <a class="btn btn-block btn-social btn-facebook" style="font-size: x-large" id="btn_facebook_login">
-                    <span class="fab fa-facebook"></span> Sign in with Facebook
-                </a>
-                <a class="btn btn-block btn-social btn-google" style="font-size: x-large" id="btn_google_login">
+                <div class="btn btn-block btn-social fb-login-button"  onlogin="checkLoginState()" scope="public_profile,email"
+                     data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true"
+                     data-use-continue-as="true"></div>
+
+
+                <a ng-click="onLoadFunction()" class="btn btn-block btn-social btn-google" style="font-size: x-large" id="btn_google_login">
                     <span class="fab fa-google-plus-g"></span> Sign in with Google
                 </a>
+                <div id="status"></div>
             </div>
         </div>
         <div class="card-footer" style="text-align: center">
