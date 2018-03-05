@@ -63,6 +63,10 @@ angular.module("appModule")
                     'Thanks for logging in, ' + response.name + '!';
                 $.notify("Thanks for logging in "+response.name,"success");
                 getInfo();
+
+                setTimeout(function () {
+                    window.location.href = "Templates/Home_View.html";
+                }, 2000);
             });
         }
         // Here we obtain extra information from the facebook api
