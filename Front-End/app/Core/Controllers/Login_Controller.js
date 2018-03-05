@@ -18,7 +18,7 @@ angular.module("appModule")
                             'into this app.';
                     }
                 });
-            }, 1000);
+            }, 500);
 
         }
 
@@ -62,6 +62,15 @@ angular.module("appModule")
                 document.getElementById('status').innerHTML =
                     'Thanks for logging in, ' + response.name + '!';
                 $.notify("Thanks for logging in "+response.name,"success");
+                getInfo();
+            });
+        }
+        // Here we obtain extra information from the facebook api
+        // Profile picture
+        function getInfo() {
+            FB.api('/me', 'GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'}, function(response) {
+                //document.getElementById('status2').innerHTML = "<img src='" + response.picture.data.url + "'>";
+                localStorage.setItem("user_information",JSON.stringify(response));
             });
         }
      })
