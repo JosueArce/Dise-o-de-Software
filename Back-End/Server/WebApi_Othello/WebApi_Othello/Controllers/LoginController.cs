@@ -15,14 +15,15 @@ namespace WebApi_Othello.Controllers
             loginManager = new LoginManager();
         }
 
-        public JsonResult logIn(PersonasActivas persona)
+        public JsonResult LogIn(PersonasActivas persona)
         {
             switch (Request.HttpMethod)
             {
                 case "GET":
-                    return Json(LoginManager.Check_ExtractData(persona),
+                    return Json(loginManager.check_ExtractData(persona),
                                 JsonRequestBehavior.AllowGet);
             }
+
             return Json(new { Error = true, Message = "Operación HTTP desconocida" });
         }
     }

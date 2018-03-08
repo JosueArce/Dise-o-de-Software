@@ -7,7 +7,7 @@ namespace WebApi_Othello.Models
 {
     public class Estadisticas_Persona
     {
-        public string ID_Facebook {get;set;}
+        public String ID_Facebook {get;set;}
         public int partidas_ganadas { get; set; }
         public int partidas_empatadas { get; set; }
         public int partidas_perdidas { get; set; }

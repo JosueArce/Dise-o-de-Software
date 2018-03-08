@@ -12,7 +12,7 @@ namespace WebApi_Othello.Models
     {
         //permite conectar a la base de datos
         private static string cadenaConexion =
-            @"Server=172.24.43.188\SQLEXPRESS;Database=Othello_DB;User Id=sa;Password=Josue54321";
+            @"Data Source=.\SQLEXPRESS;Initial Catalog=Othello_DB;Integrated Security=True;User Id=sa;Password=Josue54321;MultipleActiveResultSets=True";
         SqlConnection connection = new SqlConnection(cadenaConexion);//permite establecer la conexion con la Base de Datos
         string sqlQuery;//almacena la consulta SQL, se utiliza en la mayoria de los metodos
         SqlCommand command;//permite realizar la consulta mediante la cadena conexion y la consulta
@@ -24,7 +24,7 @@ namespace WebApi_Othello.Models
         /// que este la puede usar en las próximas veces que inicie sesión en el sistema.
         /// </summary>
         /// <param name="persona"></param>
-        public List<Estadisticas_Persona> Check_ExtractData(PersonasActivas persona)
+        public List<Estadisticas_Persona> check_ExtractData(PersonasActivas persona)
         {
             try
             {
@@ -35,17 +35,17 @@ namespace WebApi_Othello.Models
 
                 int count = Convert.ToInt32(command.ExecuteScalar());
 
+                connection.Close();
+
+                //setIP(persona); //agrega la dirección IP de la computadora del jugador
+
                 if (count != 0)//Ya existe el usuario
                 {
-                    setIP(persona); //agrega la dirección IP de la computadora del jugador
-                    return extract_Data(persona); //como el usuario existe entonces se llama esta función para que retorne los datos relevantes al usuario
+                   return extract_Data(persona); //como el usuario existe entonces se llama esta función para que retorne los datos relevantes al usuario
                 }
-                else
-                {
-                    setIP(persona); //agrega la dirección IP de la computadora del jugador
-                    generate_new_account(persona); //si el usuario no existe, se le crea un nuevo espacio en la BD             
-                }
-                connection.Close();
+                
+                generate_New_Account(persona); //si el usuario no existe, se le crea un nuevo espacio en la BD             
+
                 return null;
             }
             catch (Exception e)
@@ -67,7 +67,7 @@ namespace WebApi_Othello.Models
             try
             {
                 connection.Open();
-                sqlQuery = "SELECT EP.Partidas_Ganadas,EP.Partidas_Empatadas,EP.Partidas_Perdidas FROM dbo.[Estadisticas Persona] as EP where ID_Facebook = @ID_Facebook ";
+                sqlQuery = "SELECT EP.ID_Facebook, EP.Partidas_Ganadas,EP.Partidas_Empatadas,EP.Partidas_Perdidas FROM dbo.[Estadisticas Persona] as EP where ID_Facebook = @ID_Facebook ";
                 command = new SqlCommand(sqlQuery, connection);
                 command.Parameters.AddWithValue("@ID_Facebook", persona.ID_Facebook);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -96,7 +96,7 @@ namespace WebApi_Othello.Models
         /// <summary>
         /// Si el usuario no existe, se le creará un espacio en la BD para poder almacenar información relevante a su progreso
         /// </summary>
-        public void generate_new_account(PersonasActivas persona)
+        public void generate_New_Account(PersonasActivas persona)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace WebApi_Othello.Models
                 command = new SqlCommand(sqlQuery, connection);
                 command.Parameters.AddWithValue("@ID_Facebook", persona.ID_Facebook);
 
-                int resp = command.ExecuteNonQuery();
+                command.ExecuteNonQuery();
 
                 connection.Close();
             }
@@ -134,6 +134,34 @@ namespace WebApi_Othello.Models
                 int resp = command.ExecuteNonQuery();
 
                 connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw new InvalidOperationException(e.Message);
+            }
+        }
+
+        /// <summary>
+        /// Permite quitar la IP del usuario de la BD luego de que este se haya deslogeado del sistema.
+        /// Aparte de ser por motivos de privacidad y seguridad es también para no mantener información en la BD
+        /// </summary>
+        /// <returns></returns>
+        public bool remove_IP(PersonasActivas persona)
+        {
+            try
+            {
+                connection.Open();
+                sqlQuery = "DELETE FROM [Personas Activas] where ID_Facebook = @ID_Facebook";
+                command = new SqlCommand(sqlQuery, connection);
+                command.Parameters.AddWithValue("@ID_Facebook", persona.ID_Facebook);
+
+                int resp = command.ExecuteNonQuery();
+
+                connection.Close();
+
+                if (resp == -1) return false;
+                else return true;                
             }
             catch (Exception e)
             {
