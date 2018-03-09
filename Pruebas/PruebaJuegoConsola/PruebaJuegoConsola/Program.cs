@@ -24,6 +24,7 @@ namespace PruebaJuegoConsola
                 Console.WriteLine(movida[0] + "," + movida[1]);
             }
             Console.ReadKey();
+
         }
     }
 }

@@ -14,28 +14,44 @@ namespace PruebaJuegoConsola
         public Juego(int size)
         {
             this.size = size;
-            this.tablero = new String[this.size,this.size];
+            this.tablero = new String[this.size, this.size];
             iniciarMatriz();
+        }
+
+        public String[,] getTablero()
+        {
+            return this.tablero;
+        }
+
+        public int getSize()
+        {
+            return this.size;
         }
 
         //funcion que inicializa el tablero, llenandolo de 0s
         public void iniciarMatriz()
         {
             //llena la tabla con espacios vacios
-            for(int i = 0; i < this.size; i++)
+            for (int i = 0; i < this.size; i++)
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    this.tablero[i,j] = "0";
+                    this.tablero[i, j] = "0";
                 }
             }
             //coloca las fichas en las posiciones iniciales
             int centro = this.size / 2;
-            this.tablero[centro,centro] = "1";
-            this.tablero[centro - 1,centro - 1] = "1";
-            this.tablero[centro - 1,centro] = "2";
-            this.tablero[centro,centro - 1] = "2";
-            this.tablero[2, 2]="2";
+            this.tablero[centro, centro] = "1";
+            this.tablero[centro - 1, centro - 1] = "1";
+            this.tablero[centro - 1, centro] = "2";
+            this.tablero[centro, centro - 1] = "2";
+            this.tablero[2, 2] = "2";
+            this.tablero[2, 4] = "2";
+            this.tablero[3, 5] = "2";
+            this.tablero[4, 2] = "2";
+            this.tablero[5, 3] = "2";
+            this.tablero[5, 5] = "2";
+            this.tablero[6, 6] = "2";
         }
 
         //funcion que retorna una lista con todas las posibles jugadas que tiene el jugador de turno.
@@ -47,10 +63,10 @@ namespace PruebaJuegoConsola
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    if(this.tablero[i, j]==jugador)//si se encuentra una ficha del jugador
+                    if (this.tablero[i, j] == jugador)//si se encuentra una ficha del jugador
                     {//busca las movidas posibles para esa ficha
-                        List<List<int>> movidasFicha = evaluarMovidas(i,j,jugador);
-                        foreach(List<int> lista in movidasFicha)
+                        List<List<int>> movidasFicha = evaluarMovidas(i, j, jugador);
+                        foreach (List<int> lista in movidasFicha)
                         {
                             movidas.Add(lista);//agrega las movidas de esa ficha a la lista general de movidas
                         }
@@ -62,7 +78,7 @@ namespace PruebaJuegoConsola
             return movidas;
         }
 
-        public List<List<int>> evaluarMovidas(int fila,int columna,String jugador)
+        public List<List<int>> evaluarMovidas(int fila, int columna, String jugador)
         {//evalua segun la ficha del usuario indicada, si tiene movidas en base a esa ficha
             List<List<int>> movidas = new List<List<int>>();
             String arriba = this.tablero[fila - 1, columna];
@@ -73,7 +89,7 @@ namespace PruebaJuegoConsola
             String diagAbajoIzq = this.tablero[fila + 1, columna - 1];
             String diagArribaDer = this.tablero[fila - 1, columna + 1];
             String diagAbajoDer = this.tablero[fila + 1, columna + 1];
-            if (arriba!="0" && arriba != jugador)
+            if (arriba != "0" && arriba != jugador)
             {
                 List<int> movidaArriba = evaluarArriba(fila, columna, jugador);
                 movidas.Add(movidaArriba);
@@ -93,8 +109,8 @@ namespace PruebaJuegoConsola
                 List<int> movidaDer = evaluarDer(fila, columna, jugador);
                 movidas.Add(movidaDer);
             }
-            
-            if(diagAbajoDer != "0" && diagAbajoDer != jugador)
+
+            if (diagAbajoDer != "0" && diagAbajoDer != jugador)
             {
                 List<int> movidaDiagArribaDer = evaluarDiagAbajoDer(fila, columna, jugador);
                 movidas.Add(movidaDiagArribaDer);
@@ -111,7 +127,7 @@ namespace PruebaJuegoConsola
             }
             if (diagArribaIzq != "0" && diagArribaIzq != jugador)
             {
-                List<int> movidaDiagArribaIzq = evaluarDiagArribaDer(fila, columna, jugador);
+                List<int> movidaDiagArribaIzq = evaluarDiagArribaIzq(fila, columna, jugador);
                 movidas.Add(movidaDiagArribaIzq);
             }
 
@@ -178,10 +194,10 @@ namespace PruebaJuegoConsola
             return lista;
         }
 
-        public List<int> evaluarArriba(int fila,int columna, String jugador)
+        public List<int> evaluarArriba(int fila, int columna, String jugador)
         {
             List<int> lista = new List<int>();
-            for(int i = fila - 1; i >= 0; i--)//revisa que hay hacia arriba de la ficha
+            for (int i = fila - 1; i >= 0; i--)//revisa que hay hacia arriba de la ficha
             {
                 if (this.tablero[i, columna] == jugador)
                 {
@@ -201,22 +217,21 @@ namespace PruebaJuegoConsola
         public List<int> evaluarDiagAbajoDer(int fila, int columna, String jugador)
         {
             List<int> lista = new List<int>();
-            for (int i = fila + 1; i < this.size; i++)//revisa que hay diagonal hacia abajo derecha de la ficha
+            int i = fila + 1; int j = columna + 1;
+            while (i < this.size && j < this.size)
             {
-                for (int j = columna + 1; j < this.size; j++)
+                if (this.tablero[i, j] == jugador)
                 {
-                    if (this.tablero[i, j] == jugador)
-                    {
-                        break;
-                    }
-                    else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
-                    {
-                        lista.Add(i);
-                        lista.Add(j);
-                        return lista;
-                    }
+                    break;
                 }
-                
+                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                {
+                    lista.Add(i);
+                    lista.Add(j);
+                    return lista;
+                }
+                i++;
+                j++;
             }
 
             return lista;
@@ -225,22 +240,21 @@ namespace PruebaJuegoConsola
         public List<int> evaluarDiagAbajoIzq(int fila, int columna, String jugador)
         {
             List<int> lista = new List<int>();
-            for (int i = fila + 1; i >= 0; i++)//revisa que hay diagonal hacia abajo izquierda de la ficha
+            int i = fila + 1; int j = columna - 1;
+            while (i >= 0 && j >= 0)
             {
-                for (int j = columna - 1; j >= 0; j--)
+                if (this.tablero[i, j] == jugador)
                 {
-                    if (this.tablero[i, j] == jugador)
-                    {
-                        break;
-                    }
-                    else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
-                    {
-                        lista.Add(i);
-                        lista.Add(j);
-                        return lista;
-                    }
+                    break;
                 }
-
+                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                {
+                    lista.Add(i);
+                    lista.Add(j);
+                    return lista;
+                }
+                i++;
+                j--;
             }
 
             return lista;
@@ -249,22 +263,22 @@ namespace PruebaJuegoConsola
         public List<int> evaluarDiagArribaDer(int fila, int columna, String jugador)
         {
             List<int> lista = new List<int>();
-            for (int i = fila - 1; i >= 0; i++)//revisa que hay diagonal hacia abajo derecha de la ficha
-            {
-                for (int j = columna + 1; j < this.size; j++)
-                {
-                    if (this.tablero[i, j] == jugador)
-                    {
-                        break;
-                    }
-                    else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
-                    {
-                        lista.Add(i);
-                        lista.Add(j);
-                        return lista;
-                    }
-                }
+            int i = fila - 1; int j = columna + 1;
 
+            while (i >= 0 && j < this.size)
+            {
+                if (this.tablero[i, j] == jugador)
+                {
+                    break;
+                }
+                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                {
+                    lista.Add(i);
+                    lista.Add(j);
+                    return lista;
+                }
+                i--;
+                j++;
             }
 
             return lista;
@@ -273,22 +287,21 @@ namespace PruebaJuegoConsola
         public List<int> evaluarDiagArribaIzq(int fila, int columna, String jugador)
         {
             List<int> lista = new List<int>();
-            for (int i = fila - 1; i >= 0; i++)//revisa que hay diagonal hacia abajo derecha de la ficha
+            int i = fila - 1; int j = columna - 1;
+            while (i >= 0 && j >= 0)
             {
-                for (int j = columna - 1; j >= 0; j++)
+                if (this.tablero[i, j] == jugador)
                 {
-                    if (this.tablero[i, j] == jugador)
-                    {
-                        break;
-                    }
-                    else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
-                    {
-                        lista.Add(i);
-                        lista.Add(j);
-                        return lista;
-                    }
+                    break;
                 }
-
+                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                {
+                    lista.Add(i);
+                    lista.Add(j);
+                    return lista;
+                }
+                i--;
+                j--;
             }
 
             return lista;
@@ -304,13 +317,13 @@ namespace PruebaJuegoConsola
                 for (int j = 0; j < this.size; j++)
                 {
                     Console.SetCursorPosition(j * 4, i + 1);
-                    Console.Write(this.tablero[i,j]);
+                    Console.Write(this.tablero[i, j]);
                 }
             }
-            
+
         }
 
-        
+
 
 
 
