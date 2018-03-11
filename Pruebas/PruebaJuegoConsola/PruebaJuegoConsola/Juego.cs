@@ -126,7 +126,7 @@ namespace PruebaJuegoConsola
         {//evalua segun la ficha del usuario indicada, si tiene movidas en base a esa ficha
             List<List<int>> movidas = new List<List<int>>();
             String arriba, abajo, izq, der, diagArribaIzq, diagArribaDer, diagAbajoIzq, diagAbajoDer;
-            if(Enumerable.Range(0,this.size-1).Contains(fila) && Enumerable.Range(0, this.size - 1).Contains(columna))
+            if(Enumerable.Range(1,this.size-2).Contains(fila) && Enumerable.Range(1, this.size - 2).Contains(columna))
             {
                 arriba = this.tablero[fila - 1, columna];
                 abajo = this.tablero[fila + 1, columna];
@@ -136,52 +136,286 @@ namespace PruebaJuegoConsola
                 diagAbajoIzq = this.tablero[fila + 1, columna - 1];
                 diagArribaDer = this.tablero[fila - 1, columna + 1];
                 diagAbajoDer = this.tablero[fila + 1, columna + 1];
-            }
-            else if (fila<0)//------------------------------------------
-            {
 
+                if (arriba == this.rival)
+                {
+                    List<int> movidaArriba = evaluarArriba(fila, columna);
+                    movidas.Add(movidaArriba);
+                }
+                if (abajo == this.rival)
+                {
+                    List<int> movidaAbajo = evaluarAbajo(fila, columna);
+                    movidas.Add(movidaAbajo);
+                }
+                if (izq == this.rival)
+                {
+                    List<int> movidaIzq = evaluarIzq(fila, columna);
+                    movidas.Add(movidaIzq);
+                }
+                if (der == this.rival)
+                {
+                    List<int> movidaDer = evaluarDer(fila, columna);
+                    movidas.Add(movidaDer);
+                }
+
+                if (diagAbajoDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagAbajoDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
+                if (diagAbajoIzq == this.rival)
+                {
+                    List<int> movidaDiagAbajoIzq = evaluarDiagAbajoIzq(fila, columna);
+                    movidas.Add(movidaDiagAbajoIzq);
+                }
+                if (diagArribaDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagArribaDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
+                if (diagArribaIzq == this.rival)
+                {
+                    List<int> movidaDiagArribaIzq = evaluarDiagArribaIzq(fila, columna);
+                    movidas.Add(movidaDiagArribaIzq);
+                }
+
+            }
+
+            else if (fila<=0 && Enumerable.Range(1, this.size - 1).Contains(columna))
+            {//si la ficha esta chocando con la pared superior del tablero
+                abajo = this.tablero[fila + 1, columna];
+                izq = this.tablero[fila, columna - 1];
+                der = this.tablero[fila, columna + 1];
+                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
+                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+
+                if (abajo == this.rival)
+                {
+                    List<int> movidaAbajo = evaluarAbajo(fila, columna);
+                    movidas.Add(movidaAbajo);
+                }
+                if (izq == this.rival)
+                {
+                    List<int> movidaIzq = evaluarIzq(fila, columna);
+                    movidas.Add(movidaIzq);
+                }
+                if (der == this.rival)
+                {
+                    List<int> movidaDer = evaluarDer(fila, columna);
+                    movidas.Add(movidaDer);
+                }
+
+                if (diagAbajoDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagAbajoDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
+                if (diagAbajoIzq == this.rival)
+                {
+                    List<int> movidaDiagAbajoIzq = evaluarDiagAbajoIzq(fila, columna);
+                    movidas.Add(movidaDiagAbajoIzq);
+                }
             }
             
-            if (arriba == this.rival)
-            {
-                List<int> movidaArriba = evaluarArriba(fila, columna);
-                movidas.Add(movidaArriba);
+            else if(fila>=this.size - 1 && Enumerable.Range(1, this.size - 2).Contains(columna))
+            {//si la ficha esta chocando con la pared posterior
+                arriba = this.tablero[fila - 1, columna];
+                izq = this.tablero[fila, columna - 1];
+                der = this.tablero[fila, columna + 1];
+                diagArribaIzq = this.tablero[fila - 1, columna - 1];
+                diagArribaDer = this.tablero[fila - 1, columna + 1];
+
+                if (arriba == this.rival)
+                {
+                    List<int> movidaArriba = evaluarArriba(fila, columna);
+                    movidas.Add(movidaArriba);
+                }
+                if (izq == this.rival)
+                {
+                    List<int> movidaIzq = evaluarIzq(fila, columna);
+                    movidas.Add(movidaIzq);
+                }
+                if (der == this.rival)
+                {
+                    List<int> movidaDer = evaluarDer(fila, columna);
+                    movidas.Add(movidaDer);
+                }
+                if (diagArribaDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagArribaDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
+                if (diagArribaIzq == this.rival)
+                {
+                    List<int> movidaDiagArribaIzq = evaluarDiagArribaIzq(fila, columna);
+                    movidas.Add(movidaDiagArribaIzq);
+                }
             }
-            if (abajo == this.rival)
-            {
-                List<int> movidaAbajo = evaluarAbajo(fila, columna);
-                movidas.Add(movidaAbajo);
-            }
-            if (izq == this.rival)
-            {
-                List<int> movidaIzq = evaluarIzq(fila, columna);
-                movidas.Add(movidaIzq);
-            }
-            if (der == this.rival)
-            {
-                List<int> movidaDer = evaluarDer(fila, columna);
-                movidas.Add(movidaDer);
+            
+            else if(columna<=0 && Enumerable.Range(1, this.size - 2).Contains(fila))
+            {//si la ficha esta chocando con la pared izquierda
+                arriba = this.tablero[fila - 1, columna];
+                abajo = this.tablero[fila + 1, columna];
+                der = this.tablero[fila, columna + 1];
+                diagArribaDer = this.tablero[fila - 1, columna + 1];
+                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+
+                if (arriba == this.rival)
+                {
+                    List<int> movidaArriba = evaluarArriba(fila, columna);
+                    movidas.Add(movidaArriba);
+                }
+                if (abajo == this.rival)
+                {
+                    List<int> movidaAbajo = evaluarAbajo(fila, columna);
+                    movidas.Add(movidaAbajo);
+                }
+                if (der == this.rival)
+                {
+                    List<int> movidaDer = evaluarDer(fila, columna);
+                    movidas.Add(movidaDer);
+                }
+
+                if (diagAbajoDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagAbajoDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
+                if (diagArribaDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagArribaDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
+
             }
 
-            if (diagAbajoDer == this.rival)
-            {
-                List<int> movidaDiagArribaDer = evaluarDiagAbajoDer(fila, columna);
-                movidas.Add(movidaDiagArribaDer);
+            else if (columna >= this.size - 1 && Enumerable.Range(1, this.size - 2).Contains(fila))
+            {//si la ficha esta chocando con la pared derecha
+                arriba = this.tablero[fila - 1, columna];
+                abajo = this.tablero[fila + 1, columna];
+                izq = this.tablero[fila, columna - 1];
+                diagArribaIzq = this.tablero[fila - 1, columna - 1];
+                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
+
+                if (arriba == this.rival)
+                {
+                    List<int> movidaArriba = evaluarArriba(fila, columna);
+                    movidas.Add(movidaArriba);
+                }
+                if (abajo == this.rival)
+                {
+                    List<int> movidaAbajo = evaluarAbajo(fila, columna);
+                    movidas.Add(movidaAbajo);
+                }
+                if (izq == this.rival)
+                {
+                    List<int> movidaIzq = evaluarIzq(fila, columna);
+                    movidas.Add(movidaIzq);
+                }
+                if (diagAbajoIzq == this.rival)
+                {
+                    List<int> movidaDiagAbajoIzq = evaluarDiagAbajoIzq(fila, columna);
+                    movidas.Add(movidaDiagAbajoIzq);
+                }
+                if (diagArribaIzq == this.rival)
+                {
+                    List<int> movidaDiagArribaIzq = evaluarDiagArribaIzq(fila, columna);
+                    movidas.Add(movidaDiagArribaIzq);
+                }
+
             }
-            if (diagAbajoIzq == this.rival)
-            {
-                List<int> movidaDiagAbajoIzq = evaluarDiagAbajoIzq(fila, columna);
-                movidas.Add(movidaDiagAbajoIzq);
+
+            else if(fila<=0 && columna <= 0)
+            {//si la ficha se encuentra en la esquina superior izquierda del tablero
+                abajo = this.tablero[fila + 1, columna];
+                der = this.tablero[fila, columna + 1];
+                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+
+                if (abajo == this.rival)
+                {
+                    List<int> movidaAbajo = evaluarAbajo(fila, columna);
+                    movidas.Add(movidaAbajo);
+                }
+                if (der == this.rival)
+                {
+                    List<int> movidaDer = evaluarDer(fila, columna);
+                    movidas.Add(movidaDer);
+                }
+
+                if (diagAbajoDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagAbajoDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
             }
-            if (diagArribaDer == this.rival)
-            {
-                List<int> movidaDiagArribaDer = evaluarDiagArribaDer(fila, columna);
-                movidas.Add(movidaDiagArribaDer);
+
+            else if(fila>= this.size - 1 && columna <= 0)
+            {//si la ficha se encuentra en la esquina inferior izquierda del tablero
+                arriba = this.tablero[fila - 1, columna];
+                der = this.tablero[fila, columna + 1];
+                diagArribaDer = this.tablero[fila - 1, columna + 1];
+
+                if (arriba == this.rival)
+                {
+                    List<int> movidaArriba = evaluarArriba(fila, columna);
+                    movidas.Add(movidaArriba);
+                }
+                if (der == this.rival)
+                {
+                    List<int> movidaDer = evaluarDer(fila, columna);
+                    movidas.Add(movidaDer);
+                }
+                if (diagArribaDer == this.rival)
+                {
+                    List<int> movidaDiagArribaDer = evaluarDiagArribaDer(fila, columna);
+                    movidas.Add(movidaDiagArribaDer);
+                }
             }
-            if (diagArribaIzq == this.rival)
-            {
-                List<int> movidaDiagArribaIzq = evaluarDiagArribaIzq(fila, columna);
-                movidas.Add(movidaDiagArribaIzq);
+
+            else if(fila<=0 && columna >= this.size - 1)
+            {//si la ficha se encuentra en la esquina superior derecha
+                abajo = this.tablero[fila + 1, columna];
+                izq = this.tablero[fila, columna - 1];
+                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
+
+                if (abajo == this.rival)
+                {
+                    List<int> movidaAbajo = evaluarAbajo(fila, columna);
+                    movidas.Add(movidaAbajo);
+                }
+                if (izq == this.rival)
+                {
+                    List<int> movidaIzq = evaluarIzq(fila, columna);
+                    movidas.Add(movidaIzq);
+                }
+                if (diagAbajoIzq == this.rival)
+                {
+                    List<int> movidaDiagAbajoIzq = evaluarDiagAbajoIzq(fila, columna);
+                    movidas.Add(movidaDiagAbajoIzq);
+                }
+            }
+
+            else
+            {//si la ficha se encuentra en la esquina inferior derecha
+                arriba = this.tablero[fila - 1, columna];
+                izq = this.tablero[fila, columna - 1];
+                diagArribaIzq = this.tablero[fila - 1, columna - 1];
+
+                if (arriba == this.rival)
+                {
+                    List<int> movidaArriba = evaluarArriba(fila, columna);
+                    movidas.Add(movidaArriba);
+                }
+                if (izq == this.rival)
+                {
+                    List<int> movidaIzq = evaluarIzq(fila, columna);
+                    movidas.Add(movidaIzq);
+                }
+                if (diagArribaIzq == this.rival)
+                {
+                    List<int> movidaDiagArribaIzq = evaluarDiagArribaIzq(fila, columna);
+                    movidas.Add(movidaDiagArribaIzq);
+                }
             }
 
             return movidas;
@@ -538,7 +772,7 @@ namespace PruebaJuegoConsola
         {
             int i = fila; int j = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while (i > this.size - 1 && j < this.size - 1 && this.tablero[i + 1, j + 1] != "0")
+            while (i < this.size - 1 && j < this.size - 1 && this.tablero[i + 1, j + 1] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
