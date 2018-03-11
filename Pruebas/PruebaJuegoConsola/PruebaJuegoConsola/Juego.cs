@@ -45,13 +45,6 @@ namespace PruebaJuegoConsola
             this.tablero[centro - 1, centro - 1] = "1";
             this.tablero[centro - 1, centro] = "2";
             this.tablero[centro, centro - 1] = "2";
-            this.tablero[2, 2] = "2";
-            this.tablero[2, 4] = "2";
-            this.tablero[3, 5] = "2";
-            this.tablero[4, 2] = "2";
-            this.tablero[5, 3] = "2";
-            this.tablero[5, 5] = "2";
-            this.tablero[6, 6] = "2";
         }
 
         //funcion que retorna una lista con todas las posibles jugadas que tiene el jugador de turno.
@@ -307,7 +300,209 @@ namespace PruebaJuegoConsola
             return lista;
         }
 
+        //realiza la jugada
+        public void realizarJugada(String jugador)
+        {
+            String rival;
+            if (jugador == "1") rival = "2";
+            else rival = "1";
+            for (int i = 0; i < this.size; i++)
+            {
+                for (int j = 0; j < this.size; j++)
+                {
+                    if (this.tablero[i,j] == rival)
+                    {
+                        List<List<int>> fichasComibles = evaluarFichasComibles(i, j, jugador);
+                        actualizarTablero(fichasComibles, jugador);
+                    }
+                }
+            }
 
+        }
+
+        public List<List<int>> evaluarFichasComibles(int fila, int columna, String jugador)
+        {
+            List<List<int>> comibles = new List<List<int>>();
+
+            List<List<int>> chkIzq = checkIzq(fila,columna, jugador);
+            List<List<int>> chkDer = checkDerecha(fila, columna, jugador);
+            List<List<int>> chkArriba = checkArriba(fila, columna, jugador);
+            List<List<int>> chkAbajo = checkAbajo(fila, columna, jugador);
+            List<List<int>> chkArribaIzq = checkArribaIzq(fila, columna, jugador);
+            List<List<int>> chkArribaDer = checkArribaDer(fila, columna, jugador);
+            List<List<int>> chkAbajoIzq = checkAbajoIzq(fila, columna, jugador);
+            List<List<int>> chkAbajoDer = checkAbajoDer(fila, columna, jugador);
+            if(chkDer != null && chkIzq != null)
+            {
+                foreach (List<int> lista in chkIzq) comibles.Add(lista);
+                foreach (List<int> lista in chkDer) comibles.Add(lista);
+            }
+            if(chkArriba != null && chkAbajo != null)
+            {
+                foreach (List<int> lista in chkArriba) comibles.Add(lista);
+                foreach (List<int> lista in chkAbajo) comibles.Add(lista);
+            }
+            if(chkArribaIzq != null && chkAbajoDer != null)
+            {
+                foreach (List<int> lista in chkArribaIzq) comibles.Add(lista);
+                foreach (List<int> lista in chkAbajoDer) comibles.Add(lista);
+            }
+            if(chkArribaDer != null && chkAbajoIzq != null)
+            {
+                foreach (List<int> lista in chkArribaDer) comibles.Add(lista);
+                foreach (List<int> lista in chkAbajoIzq) comibles.Add(lista);
+            }
+            return comibles;
+
+        }
+
+        public List<List<int>> checkIzq(int fila, int columna, String jugador)
+        {
+            int i = columna;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i > 0 && this.tablero[fila,i-1]!="0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(fila);
+                fichaActual.Add(i);
+                fichas.Add(fichaActual);
+                if (this.tablero[fila, i - 1] == jugador) return fichas;
+                i--;
+            }
+            return null;
+            
+        }
+
+        public List<List<int>> checkDerecha(int fila, int columna, String jugador)
+        {
+            int i = columna;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i < this.size - 1 && this.tablero[fila, i + 1] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(fila);
+                fichaActual.Add(i);
+                fichas.Add(fichaActual);
+                if (this.tablero[i + 1, columna] == jugador) return fichas;
+                i++;
+            }
+            return null;
+
+        }
+
+        public List<List<int>> checkArriba(int fila, int columna, String jugador)
+        {
+            int i = fila;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i > 0 && this.tablero[i - 1, columna] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(i);
+                fichaActual.Add(columna);
+                fichas.Add(fichaActual);
+                if (this.tablero[i - 1, columna] == jugador) return fichas;
+                i--;
+            }
+            return null;
+
+        }
+
+        public List<List<int>> checkAbajo(int fila, int columna, String jugador)
+        {
+            int i = fila;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i < this.size - 1 && this.tablero[i + 1, columna] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(i);
+                fichaActual.Add(columna);
+                fichas.Add(fichaActual);
+                if (this.tablero[i + 1, columna] == jugador) return fichas;
+                i++;
+            }
+            return null;
+
+        }
+
+        public List<List<int>> checkArribaIzq(int fila, int columna, String jugador)
+        {
+            int i = fila; int j = columna;
+            List<List<int>> fichas = new List<List<int>>();
+            while(i > 0 && j > 0 && this.tablero[i - 1, j - 1] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(i);
+                fichaActual.Add(j);
+                fichas.Add(fichaActual);
+                if (this.tablero[i - 1, j - 1] == jugador) return fichas;
+                i--;
+                j--;
+            }
+
+            return null;
+        }
+
+        public List<List<int>> checkAbajoIzq(int fila, int columna, String jugador)
+        {
+            int i = fila; int j = columna;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i < this.size - 1 && j > 0 && this.tablero[i + 1, j - 1] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(i);
+                fichaActual.Add(j);
+                fichas.Add(fichaActual);
+                if (this.tablero[i + 1, j - 1] == jugador) return fichas;
+                i++;
+                j--;
+            }
+
+            return null;
+        }
+
+        public List<List<int>> checkArribaDer(int fila, int columna, String jugador)
+        {
+            int i = fila; int j = columna;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i > 0 && j < this.size - 1 && this.tablero[i - 1, j + 1] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(i);
+                fichaActual.Add(j);
+                fichas.Add(fichaActual);
+                if (this.tablero[i - 1, j + 1] == jugador) return fichas;
+                i--;
+                j++;
+            }
+
+            return null;
+        }
+
+        public List<List<int>> checkAbajoDer(int fila, int columna, String jugador)
+        {
+            int i = fila; int j = columna;
+            List<List<int>> fichas = new List<List<int>>();
+            while (i > this.size - 1 && j < this.size - 1 && this.tablero[i + 1, j + 1] != "0")
+            {
+                List<int> fichaActual = new List<int>();
+                fichaActual.Add(i);
+                fichaActual.Add(j);
+                fichas.Add(fichaActual);
+                if (this.tablero[i + 1, j + 1] == jugador) return fichas;
+                i++;
+                j++;
+            }
+
+            return null;
+        }
+
+        public void actualizarTablero(List<List<int>> fichasComibles, String nuevaFicha)
+        {
+            foreach(List<int> ficha in fichasComibles)
+            {
+                this.tablero[ficha[0], ficha[1]] = nuevaFicha;
+            }
+        }
 
         //dibuja el tablero en la consola
         public void dibujar()
