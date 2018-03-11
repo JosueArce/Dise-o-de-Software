@@ -51,7 +51,9 @@ namespace PruebaJuegoConsola
         {
             Console.WriteLine("Se hizo click a un boton!!");
             Button button = sender as Button;
-            List<List<int>> movidas = juego.MovidasPosibles("1");
+            juego.setJugador("1");
+            List<List<int>> movidas = juego.MovidasPosibles();
+            juego.getJugadasPosibles();//imprime las jugadas en consola
             String[] indexes = button.Tag.ToString().Split(',');
             int j = Int32.Parse(indexes[0]);
             int i = Int32.Parse(indexes[1]);
@@ -60,11 +62,13 @@ namespace PruebaJuegoConsola
                 if (i == movida[0] && j == movida[1])
                 {
                     Console.WriteLine("Esa posicion es correcta!!");
-                    juego.realizarJugada("1");
-                    updateButtons();
+                    button.Text = juego.getJugador();
+                    juego.getTablero()[i, j] = juego.getJugador();
+                    juego.realizarJugada();
+                    break;
+                    //updateButtons();
                 }
             }
-            movidas = juego.MovidasPosibles("1");
             
         }
 
@@ -74,7 +78,7 @@ namespace PruebaJuegoConsola
             {
                 for(int j=0;j<juego.getSize(); j++)
                 {
-                    buttonArray[i, j].Text = juego.getTablero()[i, j];
+                    buttonArray[i, j].BeginInvoke(new Action(() => { buttonArray[i, j].Text = juego.getTablero()[i, j]; }));
                 }
             }
         }
