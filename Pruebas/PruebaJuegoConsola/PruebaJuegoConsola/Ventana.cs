@@ -44,8 +44,11 @@ namespace PruebaJuegoConsola
                 horizotal += 80;
                 vertical = 30;
             }
-            
+
+
+
         }
+
 
         void myEventHandler(object sender, EventArgs e)
         {
@@ -62,41 +65,28 @@ namespace PruebaJuegoConsola
                 if (i == movida[0] && j == movida[1])
                 {
                     Console.WriteLine("Esa posicion es correcta!!");
-                    button.Text = juego.getJugador();
-                    juego.getTablero()[i, j] = juego.getJugador();
-                    juego.realizarJugada();
+                    //button.Text = juego.getJugador();
+                    //juego.getTablero()[i, j] = juego.getJugador();
+                    juego.realizarJugada(i,j);
+                    updateButtons();
                     break;
-                    //updateButtons();
                 }
             }
-            
+
+
+
         }
 
         public void updateButtons()
         {
-            for(int i = 0; i < juego.getSize(); i++)
+            for (int fila = 0; fila < juego.getSize(); fila++)
             {
-                for(int j=0;j<juego.getSize(); j++)
+                for (int columna = 0; columna < juego.getSize(); columna++)
                 {
-                    buttonArray[i, j].BeginInvoke(new Action(() => { buttonArray[i, j].Text = juego.getTablero()[i, j]; }));
+                    buttonArray[columna, fila].Text = juego.getTablero()[fila, columna];
                 }
             }
         }
 
-        /*
-        void OnClick(object sender, RoutedEventArgs args)
-        {
-            
-            Button button = sender as Button;
-            if (button == )
-            {
-        
-            }
-            if (button == button2)
-            {
-        
-            }
-        }
-        */
     }
 }

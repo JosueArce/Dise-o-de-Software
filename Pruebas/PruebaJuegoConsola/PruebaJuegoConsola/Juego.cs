@@ -81,6 +81,7 @@ namespace PruebaJuegoConsola
             this.tablero[centro - 1, centro - 1] = "1";
             this.tablero[centro - 1, centro] = "2";
             this.tablero[centro, centro - 1] = "2";
+            /*
             this.tablero[0, 0] = "1";
             this.tablero[6, 0] = "1";
             this.tablero[1, 1] = "2";
@@ -96,6 +97,7 @@ namespace PruebaJuegoConsola
             this.tablero[2, 5] = "1";
             this.tablero[5, 5] = "2";
             this.tablero[6, 6] = "1";
+            */
         }
 
         //funcion que retorna una lista con todas las posibles jugadas que tiene el jugador de turno.
@@ -595,8 +597,9 @@ namespace PruebaJuegoConsola
         }
 
         //realiza la jugada
-        public void realizarJugada()
+        public void realizarJugada(int fila, int columna)
         {
+            this.tablero[fila, columna] = this.jugador;
             for (int i = 0; i < this.size; i++)
             {
                 for (int j = 0; j < this.size; j++)
@@ -608,6 +611,9 @@ namespace PruebaJuegoConsola
                     }
                 }
             }
+
+            if (this.getJugador() == "1") this.setJugador("2");
+            else this.setJugador("1");
 
         }
 
