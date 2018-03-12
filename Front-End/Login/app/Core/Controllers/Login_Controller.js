@@ -4,7 +4,7 @@
 * */
 
 angular.module("appModule")
-    .controller("Login_Controller",function ($scope) {
+    .controller("Login_Controller",function ($scope,$location) {
         // This is called with the results from from FB.getLoginStatus().
         function statusChangeCallback(response) {
             setTimeout(function () {
@@ -64,7 +64,7 @@ angular.module("appModule")
                 getInfo();
 
                 setTimeout(function () {
-                    window.location.href = "Templates/Home_View.html";
+                    window.location.href = "Templates/Home_View.html/#!/home";
                 }, 2000);
             });
         }
