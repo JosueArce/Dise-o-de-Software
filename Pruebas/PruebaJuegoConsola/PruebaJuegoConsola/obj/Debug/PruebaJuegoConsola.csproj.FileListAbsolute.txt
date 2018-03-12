@@ -21,3 +21,12 @@ C:\Users\Daniel\Dropbox\Yo\TEC\Semestre 1 2018\Diseño\Repositorio Proyecto 1\Di
 C:\Users\Daniel\Dropbox\Yo\TEC\Semestre 1 2018\Diseño\Repositorio Proyecto 1\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.pdb
 C:\Users\Daniel\Dropbox\Yo\TEC\Semestre 1 2018\Diseño\Repositorio Proyecto 1\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.Ventana.resources
 C:\Users\Daniel\Dropbox\Yo\TEC\Semestre 1 2018\Diseño\Repositorio Proyecto 1\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.GenerateResource.Cache
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csprojResolveAssemblyReference.cache
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.Ventana.resources
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.GenerateResource.Cache
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.CoreCompileInputs.cache
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.exe
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.pdb
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe.config
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe
+E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.pdb
