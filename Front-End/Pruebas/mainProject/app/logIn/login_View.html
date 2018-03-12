@@ -1,0 +1,39 @@
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12&appId=807099809474052&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
+<!--Ventana LOGIN
+    Permite al usuario iniciar sesión o registrarse en el sistema mediante Google ó Facebook
+-->
+<div class="container" id="container_div_login" ng-controller="loginController">
+    <div class="card" id="card_login">
+        <div class="card-header">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h4 class="card-title">Log In</h4>
+                </div>
+                <div class="col-sm-4">
+                    <h4 class="card-title">Diseño de Software</h4>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row" >
+                <div class="btn btn-block btn-social fb-login-button"  onlogin="checkLoginState()" scope="public_profile,email"
+                     data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true"
+                     data-use-continue-as="true"></div>
+                <div id="status"></div>
+            </div>
+        </div>
+        <div class="card-footer" style="text-align: center">
+            <h5> <strong>All rights reserved</strong></h5>
+        </div>
+    </div>
+</div>
