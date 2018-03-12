@@ -13,12 +13,15 @@ namespace PruebaJuegoConsola
         List<List<int>> jugadasPosibles;//lista de jugadas posibles para el jugador
         String jugador;
         String rival;
+        int fichasJ1, fichasJ2;
         public Juego(int size)
         {
             this.size = size;
             this.jugador = "1";
             this.rival = "2";
             this.tablero = new String[this.size, this.size];
+            this.fichasJ1 = 0;
+            this.fichasJ2 = 0;
             iniciarMatriz();
         }
 
@@ -56,6 +59,38 @@ namespace PruebaJuegoConsola
             return this.rival;
         }
 
+        public int getFichasJ1()
+        {
+            return this.fichasJ1;
+        }
+
+        public int getFichasJ2()
+        {
+            return this.fichasJ2;
+        }
+
+        public void setFichas()
+        {
+            int j1=0;
+            int j2 = 0;
+            for(int i = 0; i < this.size; i++)
+            {
+                for(int j = 0; j < this.size; j++)
+                {
+                    if (this.tablero[i, j] == "1")
+                    {
+                        j1++;
+                    }
+                    else if(this.tablero[i, j] == "2")
+                    {
+                        j2++;
+                    }
+                }
+            }
+            this.fichasJ1 = j1;
+            this.fichasJ2 = j2;
+        }
+
         public void turnoSistema()
         {//funcion para que el sistema realice una movida
             List<List<int>> movidasPosibles = this.MovidasPosibles();
@@ -87,11 +122,14 @@ namespace PruebaJuegoConsola
                 }
             }
             //coloca las fichas en las posiciones iniciales
-            int centro = this.size / 2;
-            this.tablero[centro, centro] = "1";
-            this.tablero[centro - 1, centro - 1] = "1";
-            this.tablero[centro - 1, centro] = "2";
-            this.tablero[centro, centro - 1] = "2";
+            decimal centro = this.size / 2;
+            int centroRedondeado = (int) Math.Truncate(centro);
+            this.tablero[centroRedondeado, centroRedondeado] = "1";
+            this.tablero[centroRedondeado - 1, centroRedondeado - 1] = "1";
+            this.tablero[centroRedondeado - 1, centroRedondeado] = "2";
+            this.tablero[centroRedondeado, centroRedondeado - 1] = "2";
+
+            this.setFichas();
             /*
             this.tablero[0, 0] = "1";
             this.tablero[6, 0] = "1";
@@ -625,7 +663,7 @@ namespace PruebaJuegoConsola
 
             if (this.getJugador() == "1") this.setJugador("2");
             else this.setJugador("1");
-
+            this.setFichas();
         }
 
         public List<List<int>> evaluarFichasComibles(int fila, int columna)

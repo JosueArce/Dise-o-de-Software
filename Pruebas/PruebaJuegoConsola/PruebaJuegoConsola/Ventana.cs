@@ -12,7 +12,7 @@ namespace PruebaJuegoConsola
 {
     public partial class Ventana : Form
     {
-        Juego juego = new Juego(8);
+        Juego juego = new Juego(9);
         Button[,] buttonArray;
         
         public Ventana()
@@ -48,7 +48,8 @@ namespace PruebaJuegoConsola
             vertical = 30;
             
             turno.Text = "Turno: jugador " + juego.getJugador();
-
+            fichasJ1.Text = "Fichas jugador 1: " + juego.getFichasJ1();
+            fichasJ2.Text = "Fichas jugador 2: " + juego.getFichasJ2();
 
         }
 
@@ -83,6 +84,8 @@ namespace PruebaJuegoConsola
         public void updateButtons()
         {
             turno.Text = "Turno: jugador " + juego.getJugador();
+            fichasJ1.Text = "Fichas jugador 1: " + juego.getFichasJ1();
+            fichasJ2.Text = "Fichas jugador 2: " + juego.getFichasJ2();
             for (int fila = 0; fila < juego.getSize(); fila++)
             {
                 for (int columna = 0; columna < juego.getSize(); columna++)

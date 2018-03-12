@@ -30,3 +30,12 @@ E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoCo
 E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe.config
 E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe
 E:\TEC\Semestre 1 2018\Diseño\Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.pdb
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe.config
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.pdb
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.Ventana.resources
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.GenerateResource.Cache
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.exe
+C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.pdb
