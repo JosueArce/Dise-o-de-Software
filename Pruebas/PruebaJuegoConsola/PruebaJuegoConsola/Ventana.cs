@@ -12,17 +12,17 @@ namespace PruebaJuegoConsola
 {
     public partial class Ventana : Form
     {
+        Juego juego = new Juego(8);
+        Button[,] buttonArray;
+        
         public Ventana()
         {
             InitializeComponent();
         }
-        Juego juego = new Juego(8);
-        Button[,] buttonArray;
 
         public void Ventana_Load(object sender, EventArgs e)
         {
             
-            juego.iniciarMatriz();
             int horizotal = 30;
             int vertical = 30;
             int size = juego.getSize();
@@ -44,7 +44,10 @@ namespace PruebaJuegoConsola
                 horizotal += 80;
                 vertical = 30;
             }
-
+            horizotal += 80;
+            vertical = 30;
+            
+            turno.Text = "Turno: jugador " + juego.getJugador();
 
 
         }
@@ -54,7 +57,6 @@ namespace PruebaJuegoConsola
         {
             Console.WriteLine("Se hizo click a un boton!!");
             Button button = sender as Button;
-            juego.setJugador("1");
             List<List<int>> movidas = juego.MovidasPosibles();
             juego.getJugadasPosibles();//imprime las jugadas en consola
             String[] indexes = button.Tag.ToString().Split(',');
@@ -68,6 +70,7 @@ namespace PruebaJuegoConsola
                     //button.Text = juego.getJugador();
                     //juego.getTablero()[i, j] = juego.getJugador();
                     juego.realizarJugada(i,j);
+                    juego.turnoSistema();
                     updateButtons();
                     break;
                 }
@@ -79,6 +82,7 @@ namespace PruebaJuegoConsola
 
         public void updateButtons()
         {
+            turno.Text = "Turno: jugador " + juego.getJugador();
             for (int fila = 0; fila < juego.getSize(); fila++)
             {
                 for (int columna = 0; columna < juego.getSize(); columna++)

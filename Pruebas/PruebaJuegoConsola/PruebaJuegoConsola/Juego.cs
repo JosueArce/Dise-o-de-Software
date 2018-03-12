@@ -16,6 +16,8 @@ namespace PruebaJuegoConsola
         public Juego(int size)
         {
             this.size = size;
+            this.jugador = "1";
+            this.rival = "2";
             this.tablero = new String[this.size, this.size];
             iniciarMatriz();
         }
@@ -52,6 +54,15 @@ namespace PruebaJuegoConsola
         public String getRival()
         {
             return this.rival;
+        }
+
+        public void turnoSistema()
+        {//funcion para que el sistema realice una movida
+            List<List<int>> movidasPosibles = this.MovidasPosibles();
+            Random rnd = new Random();
+            int jugada = rnd.Next(movidasPosibles.Count);
+            this.realizarJugada(movidasPosibles[jugada][0], movidasPosibles[jugada][1]);
+            this.setJugador("1");
         }
 
 
