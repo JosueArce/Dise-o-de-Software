@@ -78,3 +78,14 @@ C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de
 C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\obj\Debug\WebApi_Othello.csproj.CoreCompileInputs.cache
 C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\obj\Debug\WebApi_Othello.dll
 C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\obj\Debug\WebApi_Othello.pdb
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.Owin.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.Owin.Security.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Owin.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.Owin.xml
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\Microsoft.Owin.Security.xml
