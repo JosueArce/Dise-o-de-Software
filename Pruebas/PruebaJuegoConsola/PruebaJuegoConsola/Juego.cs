@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace PruebaJuegoConsola
 {
@@ -648,6 +650,7 @@ namespace PruebaJuegoConsola
         //realiza la jugada
         public void realizarJugada(int fila, int columna)
         {
+
             this.tablero[fila, columna] = this.jugador;
             for (int i = 0; i < this.size; i++)
             {
@@ -661,8 +664,15 @@ namespace PruebaJuegoConsola
                 }
             }
 
-            if (this.getJugador() == "1") this.setJugador("2");
-            else this.setJugador("1");
+            if (this.getJugador() == "1")
+            {
+                this.setJugador("2");
+            }
+            else
+            {
+                this.setJugador("1");
+            }
+
             this.setFichas();
         }
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -83,6 +84,7 @@ namespace PruebaJuegoConsola
 
         public void updateButtons()
         {
+            if(juego.getJugador()=="2") Thread.Sleep(2000);
             turno.Text = "Turno: jugador " + juego.getJugador();
             fichasJ1.Text = "Fichas jugador 1: " + juego.getFichasJ1();
             fichasJ2.Text = "Fichas jugador 2: " + juego.getFichasJ2();
