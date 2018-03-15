@@ -8,7 +8,7 @@ angular.module("loginModule",['ngRoute'])
             }).otherwise({redirectTo:'/loginWindow'})
         }
     )
-    .controller("loginController",function ($scope,$location) {
+    .controller("loginController",function ($scope,$location,HttpRequest) {
 
         var app_id = "807099809474052";
 
@@ -17,10 +17,11 @@ angular.module("loginModule",['ngRoute'])
         var div_session = "<div id='facebook-session'" +
             "<strong></strong>"+
             "<img>"+
-            "<a href='#' id='logout' class='btn btn-danger'>Cerrar Sessión</a>"+
+            "<a href='#' id='logout' class='btn btn-danger'>Log Out</a>"+
             "</div>";
 
 
+        /*Va cargar los sdk de Facebook apenas se cargue la ventana*/
         $scope.onLoad = function () {
             //Loads the SDK asynchronously
             (function(d, s, id){
@@ -48,6 +49,7 @@ angular.module("loginModule",['ngRoute'])
 
         };
 
+        /*Verifica si el usuario se encuentra conectado o no, en caso de que lo esté se extraen los datos del mismo*/
         var statusChangeCallback = function(response,callback) {
             if (response.status === 'connected') {
                 getFacebookData();
@@ -56,6 +58,7 @@ angular.module("loginModule",['ngRoute'])
             }
         };
 
+        /*Verifica el estado de logeo del usuario, en caso de que tenga remember me este va permitir logearse sin tener que escribir de nuevo los datos*/
         var checkLoginState = function(callback) {
             FB.getLoginStatus(function(response) {
                 statusChangeCallback(response,function (data) {
@@ -64,16 +67,32 @@ angular.module("loginModule",['ngRoute'])
             });
         };
 
+        /*Obtiene la información del usuario*/
         var getFacebookData = function () {
           FB.api('/me','GET', {fields: 'first_name,last_name,name,id,picture.width(150).height(150)'},function (response) {
               $("#login").after(div_session);
               $("#login").remove();
               $("#facebook-session strong").text("Bienvenido: "+response.name);
+
+              //Permite enviar la solicitud al servidor para así terminar el proceso de logeo
+              HttpRequest.http_request({
+                  method : "GET",
+                  PersonasActivas : {
+                      ID_Facebook : response.id,
+                      IP_Computer : "123456"
+                  }
+              },function (response) {
+                  console.log(response);
+                  //se debe cambiar de ventana
+              });
+              //Almacena la información obtenida en el navegador para así manejarla en las siguientes ventanas
               localStorage.setItem("user_information",JSON.stringify(response));
+
               $.notify("Welcome "+response.name,"success");
           });
         };
 
+        /*Ejecuta las funciones de logeo cuando se presiona el botón de logearse*/
         $scope.facebookLogin = function () {
           checkLoginState(function (response) {
               if(!response){
@@ -86,22 +105,21 @@ angular.module("loginModule",['ngRoute'])
           });  
         };
 
+        /*Permite cerrar sesión cuando se presione el botón de cerrar sesión*/
         facebookLogOut = function () {
            FB.getLoginStatus(function (response) {
                if(response.status === "connected"){
                    FB.logout(function (response) {
                        $("#facebook-session").before(btn_login);
                        $("#facebook-session").remove();
-                       $.notify("Logged Out","info");
                    })
                }
            })
         };
-
         $(document).on('click','#logout',function (event) {
             event.preventDefault();
             facebookLogOut();
-
+            $.notify("Logged Out","info");
         });
     })
 ;
