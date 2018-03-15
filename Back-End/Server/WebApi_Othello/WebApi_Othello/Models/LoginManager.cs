@@ -17,6 +17,7 @@ namespace WebApi_Othello.Models
         string sqlQuery;//almacena la consulta SQL, se utiliza en la mayoria de los metodos
         SqlCommand command;//permite realizar la consulta mediante la cadena conexion y la consulta
 
+       
         /// <summary>
         /// Método principal encargado de verificar si el usuario existe en el sistema o no
         /// 1. Existe: en caso de que se encuentre dentro del sistema, se obtendrá toda la información relacionada con el jugador
@@ -37,13 +38,12 @@ namespace WebApi_Othello.Models
 
                 connection.Close();
 
-                //setIP(persona); //agrega la dirección IP de la computadora del jugador
-
                 if (count != 0)//Ya existe el usuario
                 {
+                    updateIP(persona);
                    return extract_Data(persona); //como el usuario existe entonces se llama esta función para que retorne los datos relevantes al usuario
                 }
-                
+                setIP(persona); //agrega la dirección IP de la computadora del jugador
                 generate_New_Account(persona); //si el usuario no existe, se le crea un nuevo espacio en la BD             
 
                 return null;
@@ -117,6 +117,31 @@ namespace WebApi_Othello.Models
         }
 
         /// <summary>
+        /// Permite actualizar la IP en la BD en caso de que ya exista
+        /// </summary>
+        /// <param name="persona"></param>
+        public void updateIP(PersonasActivas persona)
+        {
+            try
+            {
+                connection.Open();
+                sqlQuery = "update dbo.[Personas Activas] set IP_Computer = @IP where ID_Facebook = @ID_Facebook";
+                command = new SqlCommand(sqlQuery, connection);
+                command.Parameters.AddWithValue("@ID_Facebook", persona.ID_Facebook);
+                command.Parameters.AddWithValue("@IP", persona.IP_Computer);            
+
+                int resp = command.ExecuteNonQuery();
+
+                connection.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw new InvalidOperationException(e.Message);
+            }
+        }
+
+        /// <summary>
         /// Método que permite guardar la dirección IP del usuario para luego enviar los respectivos paquetes necesarios
         /// También permite localizarlo en caso de tener que interactuar con otros usuarios.
         /// </summary>
@@ -137,8 +162,7 @@ namespace WebApi_Othello.Models
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-                throw new InvalidOperationException(e.Message);
+                
             }
         }
 
