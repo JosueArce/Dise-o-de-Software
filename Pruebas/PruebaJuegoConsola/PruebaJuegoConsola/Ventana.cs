@@ -13,7 +13,7 @@ namespace PruebaJuegoConsola
 {
     public partial class Ventana : Form
     {
-        Juego juego = new Juego(9);
+        Juego juego = new Juego(4);
         Button[,] buttonArray;
         
         public Ventana()
@@ -72,7 +72,17 @@ namespace PruebaJuegoConsola
                     //button.Text = juego.getJugador();
                     //juego.getTablero()[i, j] = juego.getJugador();
                     juego.realizarJugada(i,j);
+                    if (juego.getJuegoTerminado())
+                    {
+                        mensajeTerminado();
+                        break;
+                    } 
                     juego.turnoSistema();
+                    if (juego.getJuegoTerminado())
+                    {
+                        mensajeTerminado();
+                        break;
+                    }
                     updateButtons();
                     break;
                 }
@@ -95,6 +105,24 @@ namespace PruebaJuegoConsola
                     buttonArray[columna, fila].Text = juego.getTablero()[fila, columna];
                 }
             }
+        }
+
+        public void mensajeTerminado()
+        {
+            Form mensaje = new Form();
+            mensaje.Width = 600;
+            mensaje.Height = 600;
+            mensaje.Text = "Juego Terminado!";
+            Label ganador = new Label() { Left = 50, Top = 20, Text=juego.getGanador() };
+            Label fichasj1 = new Label() { Left = 50, Top = 30, Text = "Fichas jugador 1: " + juego.getFichasJ1() };
+            Label fichasj2 = new Label() { Left = 50, Top = 40, Text = "Fichas jugador 2: " + juego.getFichasJ2() };
+            Button ok = new Button() { Text = "OK", Left = 350, Width = 100, Top = 150 };
+            ok.Click += (sender, e) => { mensaje.Close(); this.Close(); };
+            mensaje.Controls.Add(ok);
+            mensaje.Controls.Add(ganador);
+            mensaje.Controls.Add(fichasj1);
+            mensaje.Controls.Add(fichasj2);
+            mensaje.ShowDialog();
         }
 
     }
