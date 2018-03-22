@@ -13,10 +13,10 @@ namespace PruebaJuegoConsola
         int size;//el tamano del tablero
         String[,] tablero;//el tablero de juego
         List<List<int>> jugadasPosibles;//lista de jugadas posibles para el jugador
-        String jugador, rival, ganador;
-        int fichasJ1, fichasJ2;
-        bool juegoTerminado;
-        public Juego(int size)
+        String jugador;
+        String rival;
+        int fichasJ1, fichasJ2, dificultad; 
+        public Juego(int size, int level)
         {
             this.size = size;
             this.jugador = "1";
@@ -24,6 +24,7 @@ namespace PruebaJuegoConsola
             this.tablero = new String[this.size, this.size];
             this.fichasJ1 = 0;
             this.fichasJ2 = 0;
+            this.dificultad = level;
             iniciarMatriz();
             this.juegoTerminado = false;
             this.ganador = "-1";
@@ -114,6 +115,23 @@ namespace PruebaJuegoConsola
             this.setJugador("1");
         }
 
+        //funcion que calcula las fichas del jugador que se puede comer en cada jugada del sistema.
+        //La sigo manana porque me fui a bretear
+        public int cuantasCome(int fila, int columna)
+        {
+            int comidas = 0;
+            //CLON DEL TABLERO ORIGINAL PARA REALIZAR LA JUGADA Y LUEGO VOLVER A DEJARLO EN SU FORMA ORIGINAL
+            String[,] clon = new String[this.size,this.size];
+            this.tablero.CopyTo(clon, 0);
+            realizarJugada(fila, columna);
+            for(int i = 0; i < this.tablero.Length; i++)
+            {
+                for (int j = 0; j < this.tablero[i])
+                {
+
+                }
+            }
+        }
 
         public void getJugadasPosibles()
         {
@@ -676,7 +694,7 @@ namespace PruebaJuegoConsola
         {
 
             this.tablero[fila, columna] = this.jugador;
-            for (int i = 0; i < this.size; i++)
+            for (int i = 0; i < this.size; i++) 
             {
                 for (int j = 0; j < this.size; j++)
                 {
