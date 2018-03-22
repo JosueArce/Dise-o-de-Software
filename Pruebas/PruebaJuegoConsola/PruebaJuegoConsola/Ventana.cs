@@ -13,7 +13,7 @@ namespace PruebaJuegoConsola
 {
     public partial class Ventana : Form
     {
-        Juego juego = new Juego(8);
+        Juego juego = new Juego(8,1);
         Button[,] buttonArray;
         
         public Ventana()
@@ -70,7 +70,7 @@ namespace PruebaJuegoConsola
                 if (i == movida[0] && j == movida[1])
                 {
                     Console.WriteLine("Esa posicion es correcta!!");
-                    juego.realizarJugada(i,j);
+                    juego.realizarJugada(i,j,false);
                     if (juego.getJuegoTerminado())
                     {
                         updateButtons();
@@ -120,8 +120,8 @@ namespace PruebaJuegoConsola
             mensaje.Height = 600;
             mensaje.Text = "Juego Terminado!";
             Label ganador = new Label() { Left = 50, Top = 20, Text=juego.getGanador() };
-            Label fichasj1 = new Label() { Left = 50, Top = 30, Text = "Fichas jugador 1: " + juego.getFichasJ1() };
-            Label fichasj2 = new Label() { Left = 50, Top = 40, Text = "Fichas jugador 2: " + juego.getFichasJ2() };
+            Label fichasj1 = new Label() { Left = 60, Top = 30, Text = "Fichas jugador 1: " + juego.getFichasJ1() };
+            Label fichasj2 = new Label() { Left = 70, Top = 40, Text = "Fichas jugador 2: " + juego.getFichasJ2() };
             Button ok = new Button() { Text = "OK", Left = 350, Width = 100, Top = 150 };
             ok.Click += (sender, e) => { mensaje.Close(); this.Close(); };
             mensaje.Controls.Add(ok);
