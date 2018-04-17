@@ -39,3 +39,12 @@ C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJ
 C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.CoreCompileInputs.cache
 C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.exe
 C:\Users\Daniel\Documents\Github Repositories\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.pdb
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe.config
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.exe
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\bin\Debug\PruebaJuegoConsola.pdb
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csprojResolveAssemblyReference.cache
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.Ventana.resources
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.GenerateResource.cache
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.csproj.CoreCompileInputs.cache
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.exe
+C:\Users\Adrian\Documents\TEC\2018 I Semestre\Diseño de Software\I Proyecto\Dise-o-de-Software\Pruebas\PruebaJuegoConsola\PruebaJuegoConsola\obj\Debug\PruebaJuegoConsola.pdb

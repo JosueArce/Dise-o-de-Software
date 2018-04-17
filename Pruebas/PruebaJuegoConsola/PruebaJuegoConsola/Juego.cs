@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace PruebaJuegoConsola
 {
@@ -11,10 +13,11 @@ namespace PruebaJuegoConsola
         int size;//el tamano del tablero
         String[,] tablero;//el tablero de juego
         List<List<int>> jugadasPosibles;//lista de jugadas posibles para el jugador
-        String jugador;
+        String jugador,ganador;
         String rival;
-        int fichasJ1, fichasJ2;
-        public Juego(int size)
+        int fichasJ1, fichasJ2, dificultad;
+        bool juegoTerminado;
+        public Juego(int size, int level)
         {
             this.size = size;
             this.jugador = "1";
@@ -22,7 +25,10 @@ namespace PruebaJuegoConsola
             this.tablero = new String[this.size, this.size];
             this.fichasJ1 = 0;
             this.fichasJ2 = 0;
+            this.dificultad = level;
             iniciarMatriz();
+            this.juegoTerminado = false;
+            this.ganador = "-1";
         }
 
         public String[,] getTablero()
@@ -69,6 +75,29 @@ namespace PruebaJuegoConsola
             return this.fichasJ2;
         }
 
+        public String getGanador()
+        {
+            return this.ganador;
+        }
+
+        public bool getJuegoTerminado()
+        {
+            return this.juegoTerminado;
+        }
+
+        public String[,] clonarTablero(String[,] tablero)
+        {
+            String[,] copia = new string[this.size, this.size];
+            for(int i = 0; i < this.size; i++)
+            {
+                for (int j =0; j < this.size; j++)
+                {
+                    copia[i, j] = tablero[i, j];
+                }
+            }
+            return copia;
+        }
+
         public void setFichas()
         {
             int j1=0;
@@ -91,15 +120,100 @@ namespace PruebaJuegoConsola
             this.fichasJ2 = j2;
         }
 
+        public int calcularMejor(Dictionary<int, int> numeros)
+        {
+            int mayor = -1;
+            if (numeros.Count == 1)
+            {
+                mayor = numeros.FirstOrDefault().Key;
+            }
+            else
+            {
+                for (int i = 0; i < numeros.Count; i++)
+                {
+                    int num = numeros.ElementAt(i).Value;
+                    if (mayor < 0 || num >= mayor) mayor = numeros.ElementAt(i).Key;
+                }
+            }
+            return mayor;
+        }
+
+        public int calcularPeor(Dictionary<int,int> numeros)
+        {
+            int menor = -1;
+            if (numeros.Count == 1)
+            {
+                menor = numeros.FirstOrDefault().Key;
+            }
+            else
+            {
+                for (int i = 0; i < numeros.Count; i++)
+                {
+                    int num = numeros.ElementAt(i).Value;
+                    if (menor < 0 || num <= menor) menor = numeros.ElementAt(i).Key;
+                }
+            }
+            return menor;
+        }
+
         public void turnoSistema()
         {//funcion para que el sistema realice una movida
             List<List<int>> movidasPosibles = this.MovidasPosibles();
-            Random rnd = new Random();
-            int jugada = rnd.Next(movidasPosibles.Count);
-            this.realizarJugada(movidasPosibles[jugada][0], movidasPosibles[jugada][1]);
+            Dictionary<int, int> movidasFinales = new Dictionary<int, int>();
+            for(int i = 0; i < movidasPosibles.Count; i++)
+            {
+                movidasFinales.Add(i, cuantasCome(movidasPosibles[i][0], movidasPosibles[i][1]));
+            }
+
+            if (this.dificultad == 2)//si elige dificultad media
+            {
+                Random rnd = new Random();
+                int mejor = calcularMejor(movidasFinales);
+                int peor = calcularPeor(movidasFinales);
+                if (movidasFinales.Count <= 2)
+                {
+                    int pos = movidasFinales.ElementAt(rnd.Next(movidasFinales.Count)).Key;
+                    this.realizarJugada(movidasPosibles[pos][0], movidasPosibles[pos][1], false);
+                }
+                else
+                {
+                    int intentos = 0;
+                    int num = rnd.Next(movidasFinales.Count);
+                    while (num == mejor || num == peor || intentos<=20)
+                    {
+                        num = rnd.Next(movidasFinales.Count);
+                    }
+                }
+                
+            }
+            else if(this.dificultad==1)
+            {
+                int pos = calcularPeor(movidasFinales);
+                this.realizarJugada(movidasPosibles[pos][0], movidasPosibles[pos][1], false);
+            }
+            else if (this.dificultad == 3)
+            {
+                int pos = calcularMejor(movidasFinales);
+                this.realizarJugada(movidasPosibles[pos][0], movidasPosibles[pos][1], false);
+            }
+            
             this.setJugador("1");
         }
 
+        //funcion que calcula las fichas del jugador que se puede comer en cada jugada del sistema.
+        public int cuantasCome(int fila, int columna)
+        {
+            int fichasComidas = 0;
+            //CLON DEL TABLERO ORIGINAL PARA REALIZAR LA JUGADA Y LUEGO VOLVER A DEJARLO EN SU FORMA ORIGINAL
+            String[,] clon = clonarTablero(this.tablero);
+            realizarJugada(fila, columna, true);
+            this.juegoTerminado = false;
+            fichasComidas = this.fichasJ2;
+            //se restauran las fichas y el tablero
+            this.tablero = clonarTablero(clon);
+            setFichas();
+            return fichasComidas;//retorna la cantidad de fichas que tendría el sistema si realiza esa jugada
+        }
 
         public void getJugadasPosibles()
         {
@@ -108,6 +222,34 @@ namespace PruebaJuegoConsola
                 Console.Write("[" + jugada[0] + "," + jugada[1] + "] ");
             }
             Console.Write("\n");
+        }
+
+        public void checkJuegoTerminado()
+        {
+            MovidasPosibles();//se revisa que jugadas posibles tiene el jugador antes de su turno
+            if (this.jugadasPosibles.Count == 0)
+            {//si alguno de los jugadores se queda sin movimientos
+                this.jugador = this.rival;//se cambia de jugador para revisar si tiene jugadas posibles
+                MovidasPosibles();//se revisa que movidas tiene disponibles
+                if (this.jugadasPosibles.Count == 0)
+                {//si el rival tampoco movidas posibles
+                    this.juegoTerminado = true;//el juego termina
+                    if (this.fichasJ1 > this.fichasJ2)
+                    {
+                        this.ganador = "Ha ganado el jugador 1!";
+                    }
+                    else if (this.fichasJ2 > this.fichasJ1)
+                    {
+                        this.ganador = "Ha ganado el jugador 2!";
+                    }
+                    else
+                    {
+                        this.ganador = "Empate!";
+                    }
+                }
+                
+                
+            }
         }
 
         //funcion que inicializa el tablero, llenandolo de 0s
@@ -130,23 +272,7 @@ namespace PruebaJuegoConsola
             this.tablero[centroRedondeado, centroRedondeado - 1] = "2";
 
             this.setFichas();
-            /*
-            this.tablero[0, 0] = "1";
-            this.tablero[6, 0] = "1";
-            this.tablero[1, 1] = "2";
-            this.tablero[4, 1] = "1";
-            this.tablero[5, 1] = "2";
-            this.tablero[2, 2] = "2";
-            this.tablero[3, 2] = "1";
-            this.tablero[4, 2] = "2";
-            this.tablero[5, 2] = "1";
-            this.tablero[1, 4] = "1";
-            this.tablero[2, 4] = "2";
-            this.tablero[1, 5] = "1";
-            this.tablero[2, 5] = "1";
-            this.tablero[5, 5] = "2";
-            this.tablero[6, 6] = "1";
-            */
+            
         }
 
         //funcion que retorna una lista con todas las posibles jugadas que tiene el jugador de turno.
@@ -232,7 +358,7 @@ namespace PruebaJuegoConsola
 
             }
 
-            else if (fila<=0 && Enumerable.Range(1, this.size - 1).Contains(columna))
+            else if (fila<=0 && Enumerable.Range(1, this.size - 2).Contains(columna))
             {//si la ficha esta chocando con la pared superior del tablero
                 abajo = this.tablero[fila + 1, columna];
                 izq = this.tablero[fila, columna - 1];
@@ -579,7 +705,7 @@ namespace PruebaJuegoConsola
         {
             List<int> lista = new List<int>();
             int i = fila + 1; int j = columna - 1;
-            while (i >= 0 && j >= 0)
+            while (i < this.size && j >= 0)
             {
                 if (this.tablero[i, j] == this.jugador)
                 {
@@ -646,10 +772,11 @@ namespace PruebaJuegoConsola
         }
 
         //realiza la jugada
-        public void realizarJugada(int fila, int columna)
+        public void realizarJugada(int fila, int columna, bool esPrueba)
         {
+
             this.tablero[fila, columna] = this.jugador;
-            for (int i = 0; i < this.size; i++)
+            for (int i = 0; i < this.size; i++) 
             {
                 for (int j = 0; j < this.size; j++)
                 {
@@ -661,9 +788,21 @@ namespace PruebaJuegoConsola
                 }
             }
 
-            if (this.getJugador() == "1") this.setJugador("2");
-            else this.setJugador("1");
-            this.setFichas();
+            if (!esPrueba)//Si la movida realizada no es una prueba que no va a tener efecto en el tablero
+            {
+                if (this.getJugador() == "1")
+                {
+                    this.setJugador("2");
+                }
+                else
+                {
+                    this.setJugador("1");
+                }
+            }
+            
+
+            this.setFichas();//se actualizan las fichas
+            checkJuegoTerminado();//se revisa si se termina el juego
         }
 
         public List<List<int>> evaluarFichasComibles(int fila, int columna)
