@@ -7,20 +7,20 @@ using WebApi_Othello.Models;
 
 namespace WebApi_Othello.Controllers
 {
-    public class LoginController : Controller
+    public class StadisticController : Controller
     {
-        private LoginManager loginManager;
-        public LoginController()
+        private Estadisticas_Manager stats_manager;
+        public StadisticController()
         {
-            loginManager = new LoginManager();
+            stats_manager = new Estadisticas_Manager();
         }
 
-        public JsonResult LogIn(string ID_Facebook)
+        public JsonResult Get_Stadistics(string ID_Facebook)
         {
             switch (Request.HttpMethod)
             {
                 case "GET":
-                    return Json(loginManager.check_existence(ID_Facebook),
+                    return Json(stats_manager.extract_stats(ID_Facebook),
                                 JsonRequestBehavior.AllowGet);
             }
 

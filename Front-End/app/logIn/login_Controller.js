@@ -74,22 +74,14 @@ angular.module("loginModule",['ngRoute'])
               $("#login").remove();
               $("#facebook-session strong").text("Bienvenido: "+response.name);
 
-              //Permite enviar la solicitud al servidor para así terminar el proceso de logeo
-              HttpRequest.http_request({
-                  method : "GET",
-                  PersonasActivas : {
-                      ID_Facebook : response.id,
-                      IP_Computer : "123456"
-                  }
-              },function (response) {
-                  console.log(response);
-                  location.href = "app/index.html";
-              });
+              console.log(response);
+
               //Almacena la información obtenida en el navegador para así manejarla en las siguientes ventanas
               localStorage.setItem("user_information",JSON.stringify(response));
 
               window.setTimeout(function () {
                   $.notify("Welcome "+response.name,"success");
+                  location.href = "app/index.html";
               },1000);
               //$.notify("Welcome "+response.name,"success");
           });
