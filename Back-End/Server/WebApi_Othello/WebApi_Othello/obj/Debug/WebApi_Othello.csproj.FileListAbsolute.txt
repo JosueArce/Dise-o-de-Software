@@ -98,3 +98,6 @@ C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de
 C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\System.Web.Http.Cors.xml
 C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\es\Microsoft.AspNet.SignalR.Core.resources.dll
 C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\es\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\es\Microsoft.Owin.resources.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\es\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Back-End\Server\WebApi_Othello\WebApi_Othello\bin\es\Microsoft.Owin.Security.resources.dll

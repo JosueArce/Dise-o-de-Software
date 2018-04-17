@@ -2,57 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9a99e20-7082-427d-a8db-2fa0c3acfbae" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/Services/Factories/Http_Request.js" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/ProjectSettings.json" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/ProjectSettings.json" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/VSWorkspaceState.json" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/VSWorkspaceState.json" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/WebApi_Othello/v15/.suo" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/WebApi_Othello/v15/.suo" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/WebApi_Othello/v15/Server/sqlite3/storage.ide" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/WebApi_Othello/v15/Server/sqlite3/storage.ide" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/slnx.sqlite" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/.vs/slnx.sqlite" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/Controllers/LoginController.cs" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/Controllers/LoginController.cs" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/Models/LoginManager.cs" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/Models/LoginManager.cs" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/Web.config" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/Web.config" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/WebApi_Othello.csproj" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/WebApi_Othello.csproj" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/WebApi_Othello.csproj.user" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/WebApi_Othello.csproj.user" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Host.SystemWeb.dll" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Host.SystemWeb.dll" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Host.SystemWeb.xml" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Host.SystemWeb.xml" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Security.dll" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Security.dll" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Security.xml" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.Security.xml" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.dll" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.dll" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.xml" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/Microsoft.Owin.xml" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/WebApi_Othello.dll" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/WebApi_Othello.dll" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/WebApi_Othello.dll.config" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/WebApi_Othello.dll.config" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/WebApi_Othello.pdb" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/bin/WebApi_Othello.pdb" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.csproj.CoreCompileInputs.cache" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.csproj.FileListAbsolute.txt" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.csproj.FileListAbsolute.txt" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.csprojResolveAssemblyReference.cache" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.csprojResolveAssemblyReference.cache" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.dll" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.dll" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.pdb" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/WebApi_Othello.pdb" />
+      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Debug/build.force" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Release/WebApi_Othello.csproj.CoreCompileInputs.cache" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/obj/Release/WebApi_Othello.csproj.CoreCompileInputs.cache" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/packages.config" afterPath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/WebApi_Othello/packages.config" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.AspNet.SignalR.Core.es.2.1.2/Microsoft.AspNet.SignalR.Core.es.2.1.2.nupkg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.AspNet.SignalR.Core.es.2.1.2/lib/net45/es/Microsoft.AspNet.SignalR.Core.resources.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.AspNet.SignalR.Core.es.2.1.2/lib/net45/es/Microsoft.AspNet.SignalR.Core.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.AspNet.SignalR.SystemWeb.es.2.1.2/Microsoft.AspNet.SignalR.SystemWeb.es.2.1.2.nupkg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.AspNet.SignalR.SystemWeb.es.2.1.2/lib/net45/es/Microsoft.AspNet.SignalR.SystemWeb.resources.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.AspNet.SignalR.SystemWeb.es.2.1.2/lib/net45/es/Microsoft.AspNet.SignalR.SystemWeb.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.2.1.0/Microsoft.Owin.2.1.0.nupkg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.2.1.0/lib/net40/Microsoft.Owin.XML" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.2.1.0/lib/net40/Microsoft.Owin.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.2.1.0/lib/net45/Microsoft.Owin.XML" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.2.1.0/lib/net45/Microsoft.Owin.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Host.SystemWeb.2.1.0/Microsoft.Owin.Host.SystemWeb.2.1.0.nupkg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Host.SystemWeb.2.1.0/lib/net40/Microsoft.Owin.Host.SystemWeb.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Host.SystemWeb.2.1.0/lib/net40/Microsoft.Owin.Host.SystemWeb.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Host.SystemWeb.2.1.0/lib/net45/Microsoft.Owin.Host.SystemWeb.dll" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Host.SystemWeb.2.1.0/lib/net45/Microsoft.Owin.Host.SystemWeb.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Security.2.1.0/Microsoft.Owin.Security.2.1.0.nupkg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Security.2.1.0/lib/net45/Microsoft.Owin.Security.XML" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Back-End/Server/WebApi_Othello/packages/Microsoft.Owin.Security.2.1.0/lib/net45/Microsoft.Owin.Security.dll" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/Images/ficha1.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Images/ficha2.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Images/ficha3.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Images/ficha4.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Images/ficha5.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Images/ficha6.jpg" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/app/app.js" afterPath="$PROJECT_DIR$/app/app.js" />
+      <change beforePath="$PROJECT_DIR$/app/board/board_Controller.js" afterPath="$PROJECT_DIR$/app/board/board_Controller.js" />
+      <change beforePath="$PROJECT_DIR$/app/board/board_View.html" afterPath="$PROJECT_DIR$/app/board/board_View.html" />
+      <change beforePath="$PROJECT_DIR$/app/index.css" afterPath="$PROJECT_DIR$/app/index.css" />
+      <change beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
       <change beforePath="$PROJECT_DIR$/app/logIn/login_Controller.js" afterPath="$PROJECT_DIR$/app/logIn/login_Controller.js" />
-      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -66,31 +42,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="home_Controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/home/home_Controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+            <state relative-caret-position="21">
+              <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Http_Request.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Services/Factories/Http_Request.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login_Controller.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login_Controller.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/logIn/login_Controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="85" column="46" lean-forward="false" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+            <state relative-caret-position="756">
+              <caret line="85" column="39" lean-forward="false" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
               <folding>
                 <element signature="e#107#373#0" expanded="false" />
                 <element signature="e#907#1948#0" expanded="false" />
@@ -99,9 +75,31 @@
                 <element signature="e#2132#2297#0" expanded="false" />
                 <element signature="e#2503#2701#0" expanded="false" />
                 <element signature="e#3215#3418#0" expanded="false" />
-                <element signature="e#3952#4298#0" expanded="false" />
-                <element signature="e#4417#4756#0" expanded="false" />
-                <element signature="e#4816#4936#0" expanded="false" />
+                <element signature="e#4557#4896#0" expanded="false" />
+                <element signature="e#4956#5225#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1470">
+              <caret line="70" column="24" lean-forward="false" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+              <folding>
+                <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,18 +127,25 @@
         <option value="$PROJECT_DIR$/Libraries/CSS/Login_CSS.css" />
         <option value="$PROJECT_DIR$/login_Controller.js" />
         <option value="$PROJECT_DIR$/app/home/home_CSS.css" />
-        <option value="$PROJECT_DIR$/app/home/home_Controller.js" />
-        <option value="$PROJECT_DIR$/app/home/home_View.html" />
         <option value="$PROJECT_DIR$/app/index_CSS.css" />
-        <option value="$PROJECT_DIR$/app/index.css" />
-        <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/board/board_View.html" />
-        <option value="$PROJECT_DIR$/app/board/board_Controller.js" />
-        <option value="$PROJECT_DIR$/app/app.js" />
         <option value="$PROJECT_DIR$/app/logIn/login_CSS.css" />
         <option value="$PROJECT_DIR$/app/logIn/login_View.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/Services/Factories/Http_Request.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/board/board_Controller.js" />
+        <option value="$PROJECT_DIR$/app/index.css" />
+        <option value="$PROJECT_DIR$/app/status/status.css" />
+        <option value="$PROJECT_DIR$/app/new_session/new_session.css" />
+        <option value="$PROJECT_DIR$/app/board/board_View.html" />
+        <option value="$PROJECT_DIR$/app/new_session/new_session_View.html" />
+        <option value="$PROJECT_DIR$/app/new_session/new_session_Controller.js" />
+        <option value="$PROJECT_DIR$/app/status/status_Controller.js" />
+        <option value="$PROJECT_DIR$/app/home/home_View.html" />
+        <option value="$PROJECT_DIR$/app/app.js" />
+        <option value="$PROJECT_DIR$/app/status/status_View.html" />
+        <option value="$PROJECT_DIR$/Libraries/JS/jquery-signalr.min.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/home/home_Controller.js" />
         <option value="$PROJECT_DIR$/app/logIn/login_Controller.js" />
       </list>
     </option>
@@ -155,9 +160,8 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1353" />
-    <option name="y" value="-8" />
-    <option name="width" value="844" />
+    <option name="x" value="952" />
+    <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -176,6 +180,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -188,17 +193,10 @@
               <item name="Front-End" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Front-End" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Front-End" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Services" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -208,20 +206,22 @@
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javascript-master/javascript-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\Font Awesome\CSS" />
-      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\JS" />
-      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\Font Awesome\CSS" />
       <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\Font Awesome\JS" />
       <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\Font Awesome" />
       <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\app\board" />
       <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\app\logIn" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Images" />
+      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Libraries\Font Awesome" />
+      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Libraries\Font Awesome\JS" />
+      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\Font Awesome\CSS" />
+      <recent name="C:\Users\Josue\Documents\TEC\Semestre 5\Diseño de Software\Proyecto 1\Dise-o-de-Software\Front-End\Pruebas\mainProject\Libraries\JS" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -256,16 +256,28 @@
       <workItem from="1521043608302" duration="1940000" />
       <workItem from="1521080547176" duration="2237000" />
       <workItem from="1521125339944" duration="4972000" />
+      <workItem from="1521137667147" duration="62000" />
+      <workItem from="1521140231628" duration="458000" />
+      <workItem from="1521150106272" duration="598000" />
+      <workItem from="1521219139384" duration="60000" />
+      <workItem from="1521753708305" duration="439000" />
+      <workItem from="1521832137036" duration="37000" />
+      <workItem from="1522695967970" duration="4735000" />
+      <workItem from="1522726766711" duration="25000" />
+      <workItem from="1523543215360" duration="6976000" />
+      <workItem from="1523942399043" duration="2397000" />
+      <workItem from="1523991400808" duration="1717000" />
+      <workItem from="1523995009089" duration="715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49922000" />
+    <option name="totallyTimeSpent" value="68141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17874141" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32046536" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -292,31 +304,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app/logIn/login_View.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/Factories/Http_Request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="49" lean-forward="false" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-          <folding />
+        <state relative-caret-position="378">
+          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/logIn/login_Controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="78" column="40" lean-forward="false" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="40" />
+        <state relative-caret-position="1638">
+          <caret line="78" column="28" lean-forward="false" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
           <folding>
             <element signature="e#107#373#0" expanded="false" />
             <element signature="e#907#1948#0" expanded="false" />
@@ -325,9 +328,8 @@
             <element signature="e#2132#2297#0" expanded="false" />
             <element signature="e#2503#2701#0" expanded="false" />
             <element signature="e#3215#3418#0" expanded="false" />
-            <element signature="e#3952#4298#0" expanded="false" />
-            <element signature="e#4417#4756#0" expanded="false" />
-            <element signature="e#4816#4936#0" expanded="false" />
+            <element signature="e#4557#4896#0" expanded="false" />
+            <element signature="e#4956#5225#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -336,7 +338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -359,9 +360,8 @@
             <element signature="e#2132#2297#0" expanded="false" />
             <element signature="e#2503#2701#0" expanded="false" />
             <element signature="e#3215#3418#0" expanded="false" />
-            <element signature="e#3952#4298#0" expanded="false" />
-            <element signature="e#4417#4756#0" expanded="false" />
-            <element signature="e#4816#4936#0" expanded="false" />
+            <element signature="e#4557#4896#0" expanded="false" />
+            <element signature="e#4956#5225#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -370,41 +370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/logIn/login_View.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/logIn/login_Controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1638">
-          <caret line="78" column="28" lean-forward="false" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
-          <folding>
-            <element signature="e#107#373#0" expanded="false" />
-            <element signature="e#907#1948#0" expanded="false" />
-            <element signature="e#983#1287#0" expanded="false" />
-            <element signature="e#1372#1936#0" expanded="false" />
-            <element signature="e#2132#2297#0" expanded="false" />
-            <element signature="e#2503#2701#0" expanded="false" />
-            <element signature="e#3215#3418#0" expanded="false" />
-            <element signature="e#3952#4298#0" expanded="false" />
-            <element signature="e#4417#4756#0" expanded="false" />
-            <element signature="e#4816#4936#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -427,9 +392,8 @@
             <element signature="e#2132#2297#0" expanded="false" />
             <element signature="e#2503#2701#0" expanded="false" />
             <element signature="e#3215#3418#0" expanded="false" />
-            <element signature="e#3952#4298#0" expanded="false" />
-            <element signature="e#4417#4756#0" expanded="false" />
-            <element signature="e#4816#4936#0" expanded="false" />
+            <element signature="e#4557#4896#0" expanded="false" />
+            <element signature="e#4956#5225#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -453,9 +417,8 @@
             <element signature="e#2132#2297#0" expanded="false" />
             <element signature="e#2503#2701#0" expanded="false" />
             <element signature="e#3215#3418#0" expanded="false" />
-            <element signature="e#3952#4298#0" expanded="false" />
-            <element signature="e#4417#4756#0" expanded="false" />
-            <element signature="e#4816#4936#0" expanded="false" />
+            <element signature="e#4557#4896#0" expanded="false" />
+            <element signature="e#4956#5225#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -464,7 +427,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="32" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -553,46 +515,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Images/ficha1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/board/board_View.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="15" column="115" lean-forward="false" selection-start-line="15" selection-start-column="115" selection-end-line="15" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/board/board_Controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="31" column="14" lean-forward="false" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="5" lean-forward="false" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Images/ficha1.jpg" />
     <entry file="file://$PROJECT_DIR$/app/logIn/login_CSS.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
@@ -610,6 +533,20 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/Desktop/Desktop/termsfeed-privacy-policy-html-english.html" />
+    <entry file="file://$PROJECT_DIR$/app/Services/Factories/Http_Request.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/status/status.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/logIn/login_View.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -617,26 +554,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/Factories/Http_Request.js">
+    <entry file="file://$PROJECT_DIR$/app/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="54" lean-forward="false" selection-start-line="7" selection-start-column="54" selection-end-line="7" selection-end-column="54" />
+        <state relative-caret-position="666">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/Font Awesome/JS/bs-animation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/new_session/new_session.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-293">
+          <caret line="63" column="1" lean-forward="true" selection-start-line="63" selection-start-column="1" selection-end-line="63" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Images/f1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Images/f2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/board/board_View.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="100" lean-forward="true" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/board/board_Controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="52" lean-forward="false" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/home/home.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/new_session/new_session_Controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/new_session/new_session_View.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/status/status_View.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Libraries/JS/jquery-signalr.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="37063" lean-forward="false" selection-start-line="8" selection-start-column="37063" selection-end-line="8" selection-end-column="37063" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/home/home_View.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="46" lean-forward="false" selection-start-line="4" selection-start-column="46" selection-end-line="4" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/status/status_Controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="34" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/app/home/home_Controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="45" column="13" lean-forward="false" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/logIn/login_Controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="85" column="46" lean-forward="false" selection-start-line="85" selection-start-column="46" selection-end-line="85" selection-end-column="46" />
+        <state relative-caret-position="756">
+          <caret line="85" column="39" lean-forward="false" selection-start-line="85" selection-start-column="39" selection-end-line="85" selection-end-column="39" />
           <folding>
             <element signature="e#107#373#0" expanded="false" />
             <element signature="e#907#1948#0" expanded="false" />
@@ -645,10 +676,28 @@
             <element signature="e#2132#2297#0" expanded="false" />
             <element signature="e#2503#2701#0" expanded="false" />
             <element signature="e#3215#3418#0" expanded="false" />
-            <element signature="e#3952#4298#0" expanded="false" />
-            <element signature="e#4417#4756#0" expanded="false" />
-            <element signature="e#4816#4936#0" expanded="false" />
+            <element signature="e#4557#4896#0" expanded="false" />
+            <element signature="e#4956#5225#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1470">
+          <caret line="70" column="24" lean-forward="false" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
+          <folding>
+            <element signature="n#style#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="20" column="37" lean-forward="false" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

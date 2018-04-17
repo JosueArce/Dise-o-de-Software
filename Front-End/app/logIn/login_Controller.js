@@ -83,12 +83,15 @@ angular.module("loginModule",['ngRoute'])
                   }
               },function (response) {
                   console.log(response);
-                  //se debe cambiar de ventana
+                  location.href = "app/index.html";
               });
               //Almacena la información obtenida en el navegador para así manejarla en las siguientes ventanas
               localStorage.setItem("user_information",JSON.stringify(response));
 
-              $.notify("Welcome "+response.name,"success");
+              window.setTimeout(function () {
+                  $.notify("Welcome "+response.name,"success");
+              },1000);
+              //$.notify("Welcome "+response.name,"success");
           });
         };
 
@@ -118,8 +121,15 @@ angular.module("loginModule",['ngRoute'])
         };
         $(document).on('click','#logout',function (event) {
             event.preventDefault();
-            facebookLogOut();
-            $.notify("Logged Out","info");
+           // facebookLogOut();
+            window.setTimeout(function () {
+                facebookLogOut();
+                $.notify("Logged Out","info");
+            },1000);
+           //$.notify("Logged Out","info");
         });
+
+
     })
+
 ;

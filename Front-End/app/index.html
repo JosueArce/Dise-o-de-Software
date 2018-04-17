@@ -6,21 +6,70 @@
 
     <!--Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="../Libraries/Font%20Awesome/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../Libraries/Font%20Awesome/fonts/ionicons.min.css">
 
     <!--CSS-->
     <link rel="stylesheet" href="board/board_CSS.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="status/status.css">
+    <link rel="stylesheet" href="home/home.css">
+    <link rel="stylesheet" href="new_session/new_session.css">
+    <link rel="stylesheet" href="new_session/new_session.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barrio">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bigelow+Rules">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Ops+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin+Sketch">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ceviche+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Diplomata+SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
 </head>
 <body style="background: #e4e4e4">
 
+<nav class="navbar navbar-light navbar-expand-md" style="background-color:#9bdbc1;">
+    <div class="container-fluid"><a class="navbar-brand" href="#/home"><img src="../Images/othello.png" class="bounce animated" id="logo_othello"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div
+                class="collapse navbar-collapse" id="navcol-1">
+            <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#/status" data-bs-hover-animate="rubberBand" id="nombre_usuario">&nbsp;<button class="btn btn-primary" type="button" id="btn_estadistica">RaGex</button><img src="../Images/avatar.png" id="foto_usuario"></a></li>
+                <li
+                        class="nav-item" role="presentation"><a class="nav-link" href="#"><button class="btn btn-primary" type="button" data-bs-hover-animate="pulse" id="btn_notificaciones"><i class="icon ion-ios-bell-outline"></i><span class="badge badge-primary">4</span><span class="badge badge-primary"></span></button></a></li>
+                <li
+                        class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" id="cerrar_sesion"><i class="fa fa-ellipsis-v" id="opciones"></i></a>
+                    <div class="dropdown-menu flex-column dropdown-menu-right"
+                         role="menu" id="menu_puntos"><a class="dropdown-item" role="presentation" href="">Cerrar sesión</a><a class="dropdown-item" role="presentation" href="#/">Acerca de nosotros</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" style="min-width:250px;max-width: 100%;margin: auto;max-height: 300px" ng-view></div>
 
 
-<div class="container" ng-view></div>
+<!--<footer id="footer">-->
 
+    <!--<div style= "background: #9bdbc1; text-align: center; margin: 0px; padding:10px; position: fixed;-->
+    <!--left: 0;-->
+    <!--bottom: 0;-->
+    <!--width: 100%;">-->
+        <!--<p style= "color:white; font-family: raleway">Copyright ©2018 Othello DAJ</p>-->
+    <!--</div>-->
+<!--</footer>-->
 
 <!--jQuery JS-->
 <script src="../Libraries/JS/jquery-3.3.1.min.js"></script>
+
+<!--jQuery SignalR js-->
+<script src="../Libraries/JS/jquery-signalr.min.js"></script>
 
 <!--Popper JS-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -42,6 +91,10 @@
 
 <!--Controllers-->
 <script src="board/board_Controller.js"></script>
+<script src="new_session/new_session_Controller.js"></script>
+<script src="home/home_Controller.js"></script>
+<script src="status/status_Controller.js"></script>
+
 
 <!--Font Awesome JS-->
 <script src="../Libraries/Font%20Awesome/JS/fa-solid.min.js"></script>

@@ -1,5 +1,5 @@
 angular.module("appModule")
-    .controller("homeController",function ($scope) {
+    .controller("boardController",function ($scope) {
         //va almacenar informacion del jugador actual, se le pueden incorporar más detalles
         $scope.player = {
             name : "Josue Arce",
@@ -14,8 +14,8 @@ angular.module("appModule")
         $scope.matrizLogica = [];
         //Contiene el tamaño de la matriz, escogido por el usuario
         $scope.tam = {
-           fila : 2,
-           col : 2
+           fila : 15,
+           col : 15
         };
 
         //Permite crear la matriz con todos sus espacios por defecto
