@@ -15,12 +15,12 @@ namespace WebApi_Othello.Controllers
             loginManager = new LoginManager();
         }
 
-        public JsonResult LogIn(PersonasActivas persona)
+        public JsonResult LogIn(string ID_Facebook)
         {
             switch (Request.HttpMethod)
             {
                 case "GET":
-                    return Json(loginManager.check_ExtractData(persona),
+                    return Json(loginManager.check_existence(ID_Facebook),
                                 JsonRequestBehavior.AllowGet);
             }
 
