@@ -9,3 +9,7 @@ Pruebas/PruebaJuegoConsola/.vs/PruebaJuegoConsola/v15/Server/sqlite3/storage.ide
 *.ide-shm
 *.ide
 *.ide
+*.config
+*.config
+Back-End/Server/WebApi_Othello/.vs/WebApi_Othello/v15/.suo
+*.ide

@@ -5,6 +5,9 @@ angular.module("appModule",['ngRoute'])
             $routeProvider.when('/board/JvS',{
                 templateUrl : "board/JvS/board_JvS_View.html",
                 controller : "boardJvSController"
+            }).when('/board/JvJ',{
+                templateUrl : "board/JvS/board_JvJ_View.html",
+                controller : "boardJvJController"
             }).when('/newSession/JvS',{
                 templateUrl : "new_session/JvS/new_session_JvS_View.html",
                 controller : "new_session_Controller"
