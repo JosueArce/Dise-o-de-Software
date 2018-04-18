@@ -35,7 +35,16 @@ namespace WebApi_Othello
                     action = "Get_Stadistics"//metodo a realizar(Login()), está en el controller Login
                 }
             );
-            
+            routes.MapRoute(
+                "test",//ID de la ruta 
+                "test",//URL, ruta de acceso, para acceder al endPoint
+                new
+                {
+                    controller = "Stadistic",//controlador usado(PersonaController)
+                    action = "Get_Stadistics"//metodo a realizar(Login()), está en el controller Login
+                }
+            );
+
 
             routes.MapRoute(
                 name: "Default",

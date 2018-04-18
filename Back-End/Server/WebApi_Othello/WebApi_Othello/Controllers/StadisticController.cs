@@ -15,13 +15,15 @@ namespace WebApi_Othello.Controllers
             stats_manager = new Estadisticas_Manager();
         }
 
-        public JsonResult Get_Stadistics(string ID_Facebook)
+        public JsonResult Get_Stadistics(string ID_Facebook, string[][] test,string mensaje)
         {
             switch (Request.HttpMethod)
             {
                 case "GET":
                     return Json(stats_manager.extract_stats(ID_Facebook),
                                 JsonRequestBehavior.AllowGet);
+                case "POST":
+                    return Json(stats_manager.test(test,mensaje));
             }
 
             return Json(new { Error = true, Message = "Operación HTTP desconocida" });
