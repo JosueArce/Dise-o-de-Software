@@ -11,27 +11,37 @@ namespace WebApi_Othello.Models
     class Juego
     {
         int size;//el tamano del tablero
-        String[,] tablero;//el tablero de juego
+        string[][] tablero;//el tablero de juego
         List<List<int>> jugadasPosibles;//lista de jugadas posibles para el jugador
         String jugador,ganador;
         String rival;
         int fichasJ1, fichasJ2, dificultad;
         bool juegoTerminado;
-        public Juego(int size, int level)
+        
+        public Juego()
+        {
+            
+        }
+        
+        public List<List<int>> Cargar(int size, int level, string[][] tablero, String jugadorActual)
         {
             this.size = size;
-            this.jugador = "1";
-            this.rival = "2";
-            this.tablero = new String[this.size, this.size];
+            this.jugador = jugadorActual;
+            if (jugadorActual == "1")
+                this.rival = "2";
+            else this.rival = "1";
+
             this.fichasJ1 = 0;
             this.fichasJ2 = 0;
             this.dificultad = level;
-            iniciarMatriz();
+            this.tablero = tablero;
             this.juegoTerminado = false;
             this.ganador = "-1";
+
+            return MovidasPosibles();
         }
 
-        public String[,] getTablero()
+        public string[][] getTablero()
         {
             return this.tablero;
         }
@@ -87,6 +97,8 @@ namespace WebApi_Othello.Models
 
         public Data jugarSistemaVSistema(int x, int y)
         {
+
+
             turnoSistema();
 
             Data data = new Data {
@@ -120,14 +132,14 @@ namespace WebApi_Othello.Models
             return data;
         }
 
-        public String[,] clonarTablero(String[,] tablero)
+        public string[][] clonarTablero(string[][] tablero)
         {
-            String[,] copia = new string[this.size, this.size];
+            string[][] copia = new string[][] { };//----------
             for(int i = 0; i < this.size; i++)
             {
                 for (int j =0; j < this.size; j++)
                 {
-                    copia[i, j] = tablero[i, j];
+                    copia[i][j] = tablero[i][j];
                 }
             }
             return copia;
@@ -141,11 +153,11 @@ namespace WebApi_Othello.Models
             {
                 for(int j = 0; j < this.size; j++)
                 {
-                    if (this.tablero[i, j] == "1")
+                    if (this.tablero[i][j] == "1")
                     {
                         j1++;
                     }
-                    else if(this.tablero[i, j] == "2")
+                    else if(this.tablero[i][j] == "2")
                     {
                         j2++;
                     }
@@ -232,7 +244,7 @@ namespace WebApi_Othello.Models
                 this.realizarJugada(movidasPosibles[pos][0], movidasPosibles[pos][1], false);
             }
             
-            //this.setJugador("1");
+            this.setJugador(this.rival);
         }
 
         //funcion que calcula las fichas del jugador que se puede comer en cada jugada del sistema.
@@ -240,7 +252,7 @@ namespace WebApi_Othello.Models
         {
             int fichasComidas = 0;
             //CLON DEL TABLERO ORIGINAL PARA REALIZAR LA JUGADA Y LUEGO VOLVER A DEJARLO EN SU FORMA ORIGINAL
-            String[,] clon = clonarTablero(this.tablero);
+            string[][] clon = clonarTablero(this.tablero);
             realizarJugada(fila, columna, true);
             this.juegoTerminado = false;
             fichasComidas = this.fichasJ2;
@@ -295,16 +307,16 @@ namespace WebApi_Othello.Models
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    this.tablero[i, j] = "0";
+                    this.tablero[i][j] = "0";
                 }
             }
             //coloca las fichas en las posiciones iniciales
             decimal centro = this.size / 2;
             int centroRedondeado = (int) Math.Truncate(centro);
-            this.tablero[centroRedondeado, centroRedondeado] = "1";
-            this.tablero[centroRedondeado - 1, centroRedondeado - 1] = "1";
-            this.tablero[centroRedondeado - 1, centroRedondeado] = "2";
-            this.tablero[centroRedondeado, centroRedondeado - 1] = "2";
+            this.tablero[centroRedondeado][centroRedondeado] = "1";
+            this.tablero[centroRedondeado - 1][centroRedondeado - 1] = "1";
+            this.tablero[centroRedondeado - 1][centroRedondeado] = "2";
+            this.tablero[centroRedondeado][centroRedondeado - 1] = "2";
 
             this.setFichas();
             
@@ -319,7 +331,7 @@ namespace WebApi_Othello.Models
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    if (this.tablero[i, j] == this.jugador)//si se encuentra una ficha del jugador
+                    if (this.tablero[i][j] == this.jugador)//si se encuentra una ficha del jugador
                     {//busca las movidas posibles para esa ficha
                         List<List<int>> movidasFicha = evaluarMovidas(i, j);
                         foreach (List<int> lista in movidasFicha)
@@ -340,14 +352,14 @@ namespace WebApi_Othello.Models
             String arriba, abajo, izq, der, diagArribaIzq, diagArribaDer, diagAbajoIzq, diagAbajoDer;
             if(Enumerable.Range(1,this.size-2).Contains(fila) && Enumerable.Range(1, this.size - 2).Contains(columna))
             {
-                arriba = this.tablero[fila - 1, columna];
-                abajo = this.tablero[fila + 1, columna];
-                izq = this.tablero[fila, columna - 1];
-                der = this.tablero[fila, columna + 1];
-                diagArribaIzq = this.tablero[fila - 1, columna - 1];
-                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
-                diagArribaDer = this.tablero[fila - 1, columna + 1];
-                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+                arriba = this.tablero[fila - 1][columna];
+                abajo = this.tablero[fila + 1][columna];
+                izq = this.tablero[fila][columna - 1];
+                der = this.tablero[fila][columna + 1];
+                diagArribaIzq = this.tablero[fila - 1][columna - 1];
+                diagAbajoIzq = this.tablero[fila + 1][columna - 1];
+                diagArribaDer = this.tablero[fila - 1][columna + 1];
+                diagAbajoDer = this.tablero[fila + 1][columna + 1];
 
                 if (arriba == this.rival)
                 {
@@ -395,11 +407,11 @@ namespace WebApi_Othello.Models
 
             else if (fila<=0 && Enumerable.Range(1, this.size - 2).Contains(columna))
             {//si la ficha esta chocando con la pared superior del tablero
-                abajo = this.tablero[fila + 1, columna];
-                izq = this.tablero[fila, columna - 1];
-                der = this.tablero[fila, columna + 1];
-                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
-                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+                abajo = this.tablero[fila + 1][columna];
+                izq = this.tablero[fila][columna - 1];
+                der = this.tablero[fila][columna + 1];
+                diagAbajoIzq = this.tablero[fila + 1][columna - 1];
+                diagAbajoDer = this.tablero[fila + 1][columna + 1];
 
                 if (abajo == this.rival)
                 {
@@ -431,11 +443,11 @@ namespace WebApi_Othello.Models
             
             else if(fila>=this.size - 1 && Enumerable.Range(1, this.size - 2).Contains(columna))
             {//si la ficha esta chocando con la pared posterior
-                arriba = this.tablero[fila - 1, columna];
-                izq = this.tablero[fila, columna - 1];
-                der = this.tablero[fila, columna + 1];
-                diagArribaIzq = this.tablero[fila - 1, columna - 1];
-                diagArribaDer = this.tablero[fila - 1, columna + 1];
+                arriba = this.tablero[fila - 1][columna];
+                izq = this.tablero[fila][columna - 1];
+                der = this.tablero[fila][columna + 1];
+                diagArribaIzq = this.tablero[fila - 1][columna - 1];
+                diagArribaDer = this.tablero[fila - 1][columna + 1];
 
                 if (arriba == this.rival)
                 {
@@ -466,11 +478,11 @@ namespace WebApi_Othello.Models
             
             else if(columna<=0 && Enumerable.Range(1, this.size - 2).Contains(fila))
             {//si la ficha esta chocando con la pared izquierda
-                arriba = this.tablero[fila - 1, columna];
-                abajo = this.tablero[fila + 1, columna];
-                der = this.tablero[fila, columna + 1];
-                diagArribaDer = this.tablero[fila - 1, columna + 1];
-                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+                arriba = this.tablero[fila - 1][columna];
+                abajo = this.tablero[fila + 1][columna];
+                der = this.tablero[fila][columna + 1];
+                diagArribaDer = this.tablero[fila - 1][columna + 1];
+                diagAbajoDer = this.tablero[fila + 1][columna + 1];
 
                 if (arriba == this.rival)
                 {
@@ -503,11 +515,11 @@ namespace WebApi_Othello.Models
 
             else if (columna >= this.size - 1 && Enumerable.Range(1, this.size - 2).Contains(fila))
             {//si la ficha esta chocando con la pared derecha
-                arriba = this.tablero[fila - 1, columna];
-                abajo = this.tablero[fila + 1, columna];
-                izq = this.tablero[fila, columna - 1];
-                diagArribaIzq = this.tablero[fila - 1, columna - 1];
-                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
+                arriba = this.tablero[fila - 1][columna];
+                abajo = this.tablero[fila + 1][columna];
+                izq = this.tablero[fila][columna - 1];
+                diagArribaIzq = this.tablero[fila - 1][columna - 1];
+                diagAbajoIzq = this.tablero[fila + 1][columna - 1];
 
                 if (arriba == this.rival)
                 {
@@ -539,9 +551,9 @@ namespace WebApi_Othello.Models
 
             else if(fila<=0 && columna <= 0)
             {//si la ficha se encuentra en la esquina superior izquierda del tablero
-                abajo = this.tablero[fila + 1, columna];
-                der = this.tablero[fila, columna + 1];
-                diagAbajoDer = this.tablero[fila + 1, columna + 1];
+                abajo = this.tablero[fila + 1][columna];
+                der = this.tablero[fila][columna + 1];
+                diagAbajoDer = this.tablero[fila + 1][columna + 1];
 
                 if (abajo == this.rival)
                 {
@@ -563,9 +575,9 @@ namespace WebApi_Othello.Models
 
             else if(fila>= this.size - 1 && columna <= 0)
             {//si la ficha se encuentra en la esquina inferior izquierda del tablero
-                arriba = this.tablero[fila - 1, columna];
-                der = this.tablero[fila, columna + 1];
-                diagArribaDer = this.tablero[fila - 1, columna + 1];
+                arriba = this.tablero[fila - 1][columna];
+                der = this.tablero[fila][columna + 1];
+                diagArribaDer = this.tablero[fila - 1][columna + 1];
 
                 if (arriba == this.rival)
                 {
@@ -586,9 +598,9 @@ namespace WebApi_Othello.Models
 
             else if(fila<=0 && columna >= this.size - 1)
             {//si la ficha se encuentra en la esquina superior derecha
-                abajo = this.tablero[fila + 1, columna];
-                izq = this.tablero[fila, columna - 1];
-                diagAbajoIzq = this.tablero[fila + 1, columna - 1];
+                abajo = this.tablero[fila + 1][columna];
+                izq = this.tablero[fila][columna - 1];
+                diagAbajoIzq = this.tablero[fila + 1][columna - 1];
 
                 if (abajo == this.rival)
                 {
@@ -609,9 +621,9 @@ namespace WebApi_Othello.Models
 
             else
             {//si la ficha se encuentra en la esquina inferior derecha
-                arriba = this.tablero[fila - 1, columna];
-                izq = this.tablero[fila, columna - 1];
-                diagArribaIzq = this.tablero[fila - 1, columna - 1];
+                arriba = this.tablero[fila - 1][columna];
+                izq = this.tablero[fila][columna - 1];
+                diagArribaIzq = this.tablero[fila - 1][columna - 1];
 
                 if (arriba == this.rival)
                 {
@@ -638,11 +650,11 @@ namespace WebApi_Othello.Models
             List<int> lista = new List<int>();
             for (int i = columna + 1; i < this.size; i++)//revisa que hay hacia la derecha de la ficha
             {
-                if (this.tablero[fila, i] == this.jugador)
+                if (this.tablero[fila][i] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[fila, i] == "0")//si encontro un espacio vacio
+                else if (this.tablero[fila][i] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(fila);
                     lista.Add(i);
@@ -658,11 +670,11 @@ namespace WebApi_Othello.Models
             List<int> lista = new List<int>();
             for (int i = columna - 1; i >= 0; i--)//revisa que hay hacia la izquierda de la ficha
             {
-                if (this.tablero[fila, i] == this.jugador)
+                if (this.tablero[fila][i] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[fila, i] == "0")//si encontro un espacio vacio
+                else if (this.tablero[fila][i] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(fila);
                     lista.Add(i);
@@ -678,11 +690,11 @@ namespace WebApi_Othello.Models
             List<int> lista = new List<int>();
             for (int i = fila + 1; i < this.size; i++)//revisa que hay hacia abajo de la ficha
             {
-                if (this.tablero[i, columna] == this.jugador)
+                if (this.tablero[i][columna] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[i, columna] == "0")//si encontro un espacio vacio
+                else if (this.tablero[i][columna] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(i);
                     lista.Add(columna);
@@ -698,11 +710,11 @@ namespace WebApi_Othello.Models
             List<int> lista = new List<int>();
             for (int i = fila - 1; i >= 0; i--)//revisa que hay hacia arriba de la ficha
             {
-                if (this.tablero[i, columna] == this.jugador)
+                if (this.tablero[i][columna] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[i, columna] == "0")//si encontro un espacio vacio
+                else if (this.tablero[i][columna] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(i);
                     lista.Add(columna);
@@ -719,11 +731,11 @@ namespace WebApi_Othello.Models
             int i = fila + 1; int j = columna + 1;
             while (i < this.size && j < this.size)
             {
-                if (this.tablero[i, j] == this.jugador)
+                if (this.tablero[i][j] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                else if (this.tablero[i][j] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(i);
                     lista.Add(j);
@@ -742,11 +754,11 @@ namespace WebApi_Othello.Models
             int i = fila + 1; int j = columna - 1;
             while (i < this.size && j >= 0)
             {
-                if (this.tablero[i, j] == this.jugador)
+                if (this.tablero[i][j] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                else if (this.tablero[i][j] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(i);
                     lista.Add(j);
@@ -766,11 +778,11 @@ namespace WebApi_Othello.Models
 
             while (i >= 0 && j < this.size)
             {
-                if (this.tablero[i, j] == this.jugador)
+                if (this.tablero[i][j] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                else if (this.tablero[i][j] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(i);
                     lista.Add(j);
@@ -789,11 +801,11 @@ namespace WebApi_Othello.Models
             int i = fila - 1; int j = columna - 1;
             while (i >= 0 && j >= 0)
             {
-                if (this.tablero[i, j] == this.jugador)
+                if (this.tablero[i][j] == this.jugador)
                 {
                     break;
                 }
-                else if (this.tablero[i, j] == "0")//si encontro un espacio vacio
+                else if (this.tablero[i][j] == "0")//si encontro un espacio vacio
                 {
                     lista.Add(i);
                     lista.Add(j);
@@ -810,12 +822,12 @@ namespace WebApi_Othello.Models
         public void realizarJugada(int fila, int columna, bool esPrueba)
         {
 
-            this.tablero[fila, columna] = this.jugador;
+            this.tablero[fila][columna] = this.jugador;
             for (int i = 0; i < this.size; i++) 
             {
                 for (int j = 0; j < this.size; j++)
                 {
-                    if (this.tablero[i,j] == this.rival)
+                    if (this.tablero[i][j] == this.rival)
                     {
                         List<List<int>> fichasComibles = evaluarFichasComibles(i, j);
                         actualizarTablero(fichasComibles);
@@ -879,13 +891,13 @@ namespace WebApi_Othello.Models
         {
             int i = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while (i > 0 && this.tablero[fila,i-1]!="0")
+            while (i > 0 && this.tablero[fila][i-1]!="0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(fila);
                 fichaActual.Add(i);
                 fichas.Add(fichaActual);
-                if (this.tablero[fila, i - 1] == this.jugador) return fichas;
+                if (this.tablero[fila][i - 1] == this.jugador) return fichas;
                 i--;
             }
             return null;
@@ -896,13 +908,13 @@ namespace WebApi_Othello.Models
         {
             int i = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while (i < this.size - 1 && this.tablero[fila, i + 1] != "0")
+            while (i < this.size - 1 && this.tablero[fila][i + 1] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(fila);
                 fichaActual.Add(i);
                 fichas.Add(fichaActual);
-                if (this.tablero[fila, i + 1] == this.jugador) return fichas;
+                if (this.tablero[fila][i + 1] == this.jugador) return fichas;
                 i++;
             }
             return null;
@@ -913,13 +925,13 @@ namespace WebApi_Othello.Models
         {
             int i = fila;
             List<List<int>> fichas = new List<List<int>>();
-            while (i > 0 && this.tablero[i - 1, columna] != "0")
+            while (i > 0 && this.tablero[i - 1][columna] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
                 fichaActual.Add(columna);
                 fichas.Add(fichaActual);
-                if (this.tablero[i - 1, columna] == this.jugador) return fichas;
+                if (this.tablero[i - 1][columna] == this.jugador) return fichas;
                 i--;
             }
             return null;
@@ -930,13 +942,13 @@ namespace WebApi_Othello.Models
         {
             int i = fila;
             List<List<int>> fichas = new List<List<int>>();
-            while (i < this.size - 1 && this.tablero[i + 1, columna] != "0")
+            while (i < this.size - 1 && this.tablero[i + 1][columna] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
                 fichaActual.Add(columna);
                 fichas.Add(fichaActual);
-                if (this.tablero[i + 1, columna] == this.jugador) return fichas;
+                if (this.tablero[i + 1][columna] == this.jugador) return fichas;
                 i++;
             }
             return null;
@@ -947,13 +959,13 @@ namespace WebApi_Othello.Models
         {
             int i = fila; int j = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while(i > 0 && j > 0 && this.tablero[i - 1, j - 1] != "0")
+            while(i > 0 && j > 0 && this.tablero[i - 1][j - 1] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
                 fichaActual.Add(j);
                 fichas.Add(fichaActual);
-                if (this.tablero[i - 1, j - 1] == this.jugador) return fichas;
+                if (this.tablero[i - 1][j - 1] == this.jugador) return fichas;
                 i--;
                 j--;
             }
@@ -965,13 +977,13 @@ namespace WebApi_Othello.Models
         {
             int i = fila; int j = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while (i < this.size - 1 && j > 0 && this.tablero[i + 1, j - 1] != "0")
+            while (i < this.size - 1 && j > 0 && this.tablero[i + 1][j - 1] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
                 fichaActual.Add(j);
                 fichas.Add(fichaActual);
-                if (this.tablero[i + 1, j - 1] == this.jugador) return fichas;
+                if (this.tablero[i + 1][j - 1] == this.jugador) return fichas;
                 i++;
                 j--;
             }
@@ -983,13 +995,13 @@ namespace WebApi_Othello.Models
         {
             int i = fila; int j = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while (i > 0 && j < this.size - 1 && this.tablero[i - 1, j + 1] != "0")
+            while (i > 0 && j < this.size - 1 && this.tablero[i - 1][j + 1] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
                 fichaActual.Add(j);
                 fichas.Add(fichaActual);
-                if (this.tablero[i - 1, j + 1] == this.jugador) return fichas;
+                if (this.tablero[i - 1][j + 1] == this.jugador) return fichas;
                 i--;
                 j++;
             }
@@ -1001,13 +1013,13 @@ namespace WebApi_Othello.Models
         {
             int i = fila; int j = columna;
             List<List<int>> fichas = new List<List<int>>();
-            while (i < this.size - 1 && j < this.size - 1 && this.tablero[i + 1, j + 1] != "0")
+            while (i < this.size - 1 && j < this.size - 1 && this.tablero[i + 1][j + 1] != "0")
             {
                 List<int> fichaActual = new List<int>();
                 fichaActual.Add(i);
                 fichaActual.Add(j);
                 fichas.Add(fichaActual);
-                if (this.tablero[i + 1, j + 1] == this.jugador) return fichas;
+                if (this.tablero[i + 1][j + 1] == this.jugador) return fichas;
                 i++;
                 j++;
             }
@@ -1019,7 +1031,7 @@ namespace WebApi_Othello.Models
         {
             foreach(List<int> ficha in fichasComibles)
             {
-                this.tablero[ficha[0], ficha[1]] = this.jugador;
+                this.tablero[ficha[0]][ficha[1]] = this.jugador;
             }
         }
 

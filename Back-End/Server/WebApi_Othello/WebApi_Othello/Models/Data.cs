@@ -10,7 +10,7 @@ namespace WebApi_Othello.Models
     {
         public int fichas_J1 { get; set; }
         public int fichas_J2 { get; set; }
-        public String[,] tablero { get; set; }
+        public string[][] tablero { get; set; }
         public List<List<int>> movidas { get; set; }
         public bool juego_Terminado { get; set; }
         public string jugador_Actual { get; set; }

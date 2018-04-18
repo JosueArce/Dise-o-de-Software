@@ -13,15 +13,22 @@ namespace WebApi_Othello.Controllers
 
         public JuegoController()
         {
-            this.juego = new Juego(0, 0);//no final
+            this.juego = new Juego();//no final
         }
 
-
-        
-        // GET: Juego
-        public ActionResult Index()
+        public JsonResult Cargar_Datos(int size, int level, string[][] tablero, String jugadorActual)
         {
-            return View();
+            switch (Request.HttpMethod)
+            {
+                case "GET":
+                    return Json(juego.Cargar(size, level, tablero, jugadorActual),
+                                JsonRequestBehavior.AllowGet);
+                case "POST":
+                    return Json(juego.Cargar(size, level, tablero, jugadorActual));
+            }
+
+            return Json(new { Error = true, Message = "Operación HTTP desconocida" });
         }
+
     }
 }

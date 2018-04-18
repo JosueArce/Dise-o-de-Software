@@ -35,7 +35,16 @@ namespace WebApi_Othello
                     action = "Get_Stadistics"//metodo a realizar(Login()), está en el controller Login
                 }
             );
-            
+
+            routes.MapRoute(
+                "movidasPosibles",//ID de la ruta 
+                "movidasPosibles",//URL, ruta de acceso, para acceder al endPoint
+                new
+                {
+                    controller = "Juego",//controlador usado(PersonaController)
+                    action = "Cargar_Datos"//metodo a realizar(Login()), está en el controller Login
+                }
+            );
 
             routes.MapRoute(
                 name: "Default",
