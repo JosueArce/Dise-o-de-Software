@@ -63,14 +63,22 @@ namespace PruebaJuegoConsola
             List<List<int>> movidas = juego.MovidasPosibles();
             juego.getJugadasPosibles();//imprime las jugadas en consola
             String[] indexes = button.Tag.ToString().Split(',');
-            int j = Int32.Parse(indexes[0]);
-            int i = Int32.Parse(indexes[1]);
+            int y = Int32.Parse(indexes[0]);
+            int x = Int32.Parse(indexes[1]);
             foreach (List<int> movida in movidas)
             {
-                if (i == movida[0] && j == movida[1])
+                if (x == movida[0] && y == movida[1])
                 {
                     Console.WriteLine("Esa posicion es correcta!!");
-                    juego.realizarJugada(i,j,false);
+                    juego.jugarJugadorVSistema(x, y);
+                    if (juego.getJuegoTerminado())
+                    {
+                        updateButtons();
+                        mensajeTerminado();
+                        break;
+                    }
+                    /*
+                    juego.realizarJugada(x,y,false);
                     if (juego.getJuegoTerminado())
                     {
                         updateButtons();
@@ -84,6 +92,7 @@ namespace PruebaJuegoConsola
                         mensajeTerminado();
                         break;
                     }
+                    */
                     updateButtons();
                     break;
                 }
