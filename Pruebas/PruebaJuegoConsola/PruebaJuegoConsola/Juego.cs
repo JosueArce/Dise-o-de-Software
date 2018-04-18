@@ -85,6 +85,41 @@ namespace PruebaJuegoConsola
             return this.juegoTerminado;
         }
 
+        public Data jugarSistemaVSistema(int x, int y)
+        {
+            turnoSistema();
+
+            Data data = new Data {
+                fichas_J1 = this.fichasJ1,
+                fichas_J2 = this.fichasJ2,
+                tablero = this.tablero,
+                movidas = this.MovidasPosibles(),
+                jugador_Actual = this.jugador
+            };
+            return data;
+        }
+
+        public Data jugarJugadorVSistema(int x, int y)
+        {
+            if(this.jugador == "1")
+            {
+                realizarJugada(x, y, false);
+            }
+            else
+            {
+                turnoSistema();
+            }
+            Data data = new Data
+            {
+                fichas_J1 = this.fichasJ1,
+                fichas_J2 = this.fichasJ2,
+                tablero = this.tablero,
+                movidas = this.MovidasPosibles(),
+                jugador_Actual = this.jugador
+            };
+            return data;
+        }
+
         public String[,] clonarTablero(String[,] tablero)
         {
             String[,] copia = new string[this.size, this.size];
@@ -197,7 +232,7 @@ namespace PruebaJuegoConsola
                 this.realizarJugada(movidasPosibles[pos][0], movidasPosibles[pos][1], false);
             }
             
-            this.setJugador("1");
+            //this.setJugador("1");
         }
 
         //funcion que calcula las fichas del jugador que se puede comer en cada jugada del sistema.
