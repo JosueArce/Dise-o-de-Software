@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/xRaGeX/Dise-o-de-Software#readme",
   "dependencies": {
-    "angular": "^1.6.9",
-    "angular-route": "^1.6.9",
+    "angular": "^1.6.10",
+    "angular-route": "^1.6.10",
     "live-server": "^1.2.0",
     "npm": "^5.8.0",
     "sweetalert": "^2.1.0"
