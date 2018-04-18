@@ -34,6 +34,7 @@ namespace WebApi_Othello
                     action = "Get_Stadistics"//metodo a realizar(Login()), está en el controller Login
                 }
             );
+            
 
             routes.MapRoute(
                 name: "Default",

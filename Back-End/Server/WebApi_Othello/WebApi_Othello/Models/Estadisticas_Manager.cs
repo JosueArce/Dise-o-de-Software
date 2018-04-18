@@ -15,6 +15,7 @@ namespace WebApi_Othello.Models
         string sqlQuery;//almacena la consulta SQL, se utiliza en la mayoria de los metodos
         SqlCommand command;//permite realizar la consulta mediante la cadena conexion y la consulta
 
+
         public List<Estadisticas_Model> extract_stats(string ID_Facebook)
         {
             Estadisticas_Model objeto;
@@ -50,6 +51,7 @@ namespace WebApi_Othello.Models
                 throw new InvalidOperationException(e.Message);
             }
         }
+        
 
     }
 }

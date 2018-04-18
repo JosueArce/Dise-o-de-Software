@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="../Libraries/Font%20Awesome/fonts/ionicons.min.css">
 
     <!--CSS-->
-    <link rel="stylesheet" href="board/board_CSS.css">
+    <link rel="stylesheet" href="board/JvS/board_JvS_CSS.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="status/status.css">
     <link rel="stylesheet" href="home/home.css">
-    <link rel="stylesheet" href="new_session/new_session.css">
-    <link rel="stylesheet" href="new_session/new_session.css">
+    <link rel="stylesheet" href="new_session/JvS/new_session_JvS.css">
+    <link rel="stylesheet" href="new_session/JvS/new_session_JvS.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Advent+Pro">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amita">
@@ -39,7 +39,7 @@
         <div
                 class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
-                <li class="nav-item" role="presentation"><a class="nav-link active" href="#/status" data-bs-hover-animate="rubberBand" id="nombre_usuario">&nbsp;<button class="btn btn-primary" type="button" id="btn_estadistica">RaGex</button><img src="../Images/avatar.png" id="foto_usuario"></a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" href="#/status" data-bs-hover-animate="rubberBand" id="nombre_usuario">&nbsp;<button class="btn btn-primary" type="button" id="btn_estadistica"></button><img src="" id="foto_usuario"></a></li>
                 <li
                         class="nav-item" role="presentation"><a class="nav-link" href="#"><button class="btn btn-primary" type="button" data-bs-hover-animate="pulse" id="btn_notificaciones"><i class="icon ion-ios-bell-outline"></i><span class="badge badge-primary">4</span><span class="badge badge-primary"></span></button></a></li>
                 <li
@@ -52,18 +52,13 @@
     </div>
 </nav>
 
-<div class="container-fluid" style="min-width:250px;max-width: 100%;margin: auto;max-height: 300px" ng-view></div>
+<div class="container-fluid" ng-view></div>
 
 
-<!--<footer id="footer">-->
-
-    <!--<div style= "background: #9bdbc1; text-align: center; margin: 0px; padding:10px; position: fixed;-->
-    <!--left: 0;-->
-    <!--bottom: 0;-->
-    <!--width: 100%;">-->
-        <!--<p style= "color:white; font-family: raleway">Copyright ©2018 Othello DAJ</p>-->
-    <!--</div>-->
-<!--</footer>-->
+<script>
+    document.getElementById("foto_usuario").setAttribute("src",JSON.parse(localStorage.getItem("user_information")).picture.data.url);
+    document.getElementById("btn_estadistica").appendChild(document.createTextNode(JSON.parse(localStorage.getItem("user_information")).name));
+</script>
 
 <!--jQuery JS-->
 <script src="../Libraries/JS/jquery-3.3.1.min.js"></script>
@@ -89,9 +84,12 @@
 <!--App JS-->
 <script src="app.js"></script>
 
+<!--Factories-->
+<script src="Services/Factories/Main/Http_Request.js"></script>
+
 <!--Controllers-->
-<script src="board/board_Controller.js"></script>
-<script src="new_session/new_session_Controller.js"></script>
+<script src="board/JvS/board_JvS_Controller.js"></script>
+<script src="new_session/JvS/new_session_JvS_Controller.js"></script>
 <script src="home/home_Controller.js"></script>
 <script src="status/status_Controller.js"></script>
 
