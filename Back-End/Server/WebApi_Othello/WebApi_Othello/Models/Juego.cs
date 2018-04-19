@@ -23,8 +23,8 @@ namespace WebApi_Othello.Models
             
         }
         
-        public List<List<int>> Cargar(int size, int level, string[][] tablero, String jugadorActual)
-        {
+        public void Cargar(int size, int level, String jugadorActual)
+        {//Carga los datos actuales de la partida y retorna las movidas posibles correspondientes
             this.size = size;
             this.jugador = jugadorActual;
             if (jugadorActual == "1")
@@ -34,10 +34,49 @@ namespace WebApi_Othello.Models
             this.fichasJ1 = 0;
             this.fichasJ2 = 0;
             this.dificultad = level;
-            this.tablero = tablero;
+            this.tablero = new string[this.size][];
+            for(int i = 0; i < this.size; i++)
+            {
+                this.tablero[i] = new string[this.size];
+            }
             this.juegoTerminado = false;
             this.ganador = "-1";
 
+            
+        }
+
+        public void actualizarFichasJugador(List<String> fichas, bool esJugador1)
+        {
+            int posx = 0;
+            int posy = 0;
+            for (int k = 0; k < fichas.Count; k++)
+            {
+                for (int i = 0; i < this.size; i++)
+                {
+                    for (int j = 0; j < this.size; j++)
+                    {
+                        String[] indexes = fichas[k].Split(',');
+                        posx = Int32.Parse(indexes[0]);
+                        posy = Int32.Parse(indexes[1]);
+                        if (i == posx && j == posy)
+                        {
+                            if (esJugador1)
+                                this.tablero[i][j] = "1";
+                            else
+                                this.tablero[i][j] = "2";
+                            //matriz[i][j] = 2
+                        }
+                    }
+                }
+            }
+        }
+
+        public List<List<int>> retornarMovidasPosibles(int size, int level, String jugadorActual, List<String> posFichasJ1, List<String> posFichasJ2)
+        {
+            Cargar(size,level,jugadorActual);
+            iniciarMatriz();
+            actualizarFichasJugador(posFichasJ1, true);
+            actualizarFichasJugador(posFichasJ2, false);
             return MovidasPosibles();
         }
 
@@ -95,10 +134,10 @@ namespace WebApi_Othello.Models
             return this.juegoTerminado;
         }
 
-        public Data jugarSistemaVSistema(int x, int y)
+        public Data jugarSistemaVSistema(int size, int level, String jugadorActual)
         {
 
-
+            Cargar(size, level, jugadorActual);
             turnoSistema();
 
             Data data = new Data {
@@ -111,9 +150,12 @@ namespace WebApi_Othello.Models
             return data;
         }
 
-        public Data jugarJugadorVSistema(int x, int y)
+        public Data jugarJugadorVSistema(int size, int level, String jugadorActual, int x, int y, List<String> posFichasJ1, List<String> posFichasJ2)
         {
-            if(this.jugador == "1")
+            Cargar(size, level, jugadorActual);
+            actualizarFichasJugador(posFichasJ1, true);
+            actualizarFichasJugador(posFichasJ2, false);
+            if (this.jugador == "1")
             {
                 realizarJugada(x, y, false);
             }
@@ -134,13 +176,16 @@ namespace WebApi_Othello.Models
 
         public string[][] clonarTablero(string[][] tablero)
         {
-            string[][] copia = new string[][] { };//----------
+            string[][] copia = new string[this.size][];//----------
+
             for(int i = 0; i < this.size; i++)
             {
-                for (int j =0; j < this.size; j++)
+                copia[i] = new string[this.size];
+                for (int j = 0; j < this.size; j++)
                 {
                     copia[i][j] = tablero[i][j];
                 }
+
             }
             return copia;
         }
@@ -206,6 +251,11 @@ namespace WebApi_Othello.Models
         public void turnoSistema()
         {//funcion para que el sistema realice una movida
             List<List<int>> movidasPosibles = this.MovidasPosibles();
+            if (movidasPosibles.Count < 1)
+            {
+                setJugador(this.jugador);
+                return;
+            }
             Dictionary<int, int> movidasFinales = new Dictionary<int, int>();
             for(int i = 0; i < movidasPosibles.Count; i++)
             {
@@ -244,7 +294,7 @@ namespace WebApi_Othello.Models
                 this.realizarJugada(movidasPosibles[pos][0], movidasPosibles[pos][1], false);
             }
             
-            this.setJugador(this.rival);
+            this.setJugador(this.jugador);
         }
 
         //funcion que calcula las fichas del jugador que se puede comer en cada jugada del sistema.
@@ -311,14 +361,14 @@ namespace WebApi_Othello.Models
                 }
             }
             //coloca las fichas en las posiciones iniciales
-            decimal centro = this.size / 2;
+            /*decimal centro = this.size / 2;
             int centroRedondeado = (int) Math.Truncate(centro);
             this.tablero[centroRedondeado][centroRedondeado] = "1";
             this.tablero[centroRedondeado - 1][centroRedondeado - 1] = "1";
             this.tablero[centroRedondeado - 1][centroRedondeado] = "2";
             this.tablero[centroRedondeado][centroRedondeado - 1] = "2";
 
-            this.setFichas();
+            this.setFichas();*/
             
         }
 

@@ -13,22 +13,33 @@ namespace WebApi_Othello.Controllers
 
         public JuegoController()
         {
-            this.juego = new Juego();//no final
+            this.juego = new Juego();
         }
 
-        public JsonResult Cargar_Datos(int size, int level, string[][] tablero, String jugadorActual)
+        public JsonResult Get_Movidas_Posibles(int size, int level, String jugadorActual, List<String> posFichasJ1, List<String> posFichasJ2)
         {
             switch (Request.HttpMethod)
             {
                 case "GET":
-                    return Json(juego.Cargar(size, level, tablero, jugadorActual),
+                    return Json(juego.retornarMovidasPosibles(size, level, jugadorActual, posFichasJ1, posFichasJ2),
                                 JsonRequestBehavior.AllowGet);
                 case "POST":
-                    return Json(juego.Cargar(size, level, tablero, jugadorActual));
+                    return Json(juego.retornarMovidasPosibles(size, level, jugadorActual, posFichasJ1, posFichasJ2));
             }
 
             return Json(new { Error = true, Message = "Operación HTTP desconocida" });
         }
+        /*
+        public JsonResult Realizar_Jugada_Jug_Sis(int size, int level, string[][] tablero, String jugadorActual, int x, int y, List<String> posFichasJ1, List<String> posFichasJ2)
+        {
+            switch (Request.HttpMethod)
+            {
+                case "POST":
+                    return Json(juego.jugarJugadVSistema(size, level, jugadorActual, x, y, posFichasJ1, posFichasJ2));
+            }
+
+            return Json(new { Error = true, Message = "Operación HTTP desconocida" });
+        }*/
 
     }
 }

@@ -42,7 +42,17 @@ namespace WebApi_Othello
                 new
                 {
                     controller = "Juego",//controlador usado(PersonaController)
-                    action = "Cargar_Datos"//metodo a realizar(Login()), está en el controller Login
+                    action = "Get_Movidas_Posibles"//metodo a realizar(Get_Movidas_Posibles()), está en el controller Juego
+                }
+            );
+
+            routes.MapRoute(
+                "realizarJugadaSvS",//ID de la ruta 
+                "realizarJugadaSvS",//URL, ruta de acceso, para acceder al endPoint
+                new
+                {
+                    controller = "Juego",//controlador usado(PersonaController)
+                    action = "Realizar_Jugada_Sis_Sis"//metodo a realizar(Realizar_Jugada_Sis_Sis()), está en el controller Juego
                 }
             );
 
