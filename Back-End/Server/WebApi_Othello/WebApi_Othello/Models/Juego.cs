@@ -15,7 +15,7 @@ namespace WebApi_Othello.Models
         List<List<int>> jugadasPosibles;//lista de jugadas posibles para el jugador
         String jugador,ganador;
         String rival;
-        int fichasJ1, fichasJ2, dificultad;
+        int puntosJ1, puntosJ2, dificultad;
         bool juegoTerminado;
         
         public Juego()
@@ -31,8 +31,8 @@ namespace WebApi_Othello.Models
                 this.rival = "2";
             else this.rival = "1";
 
-            this.fichasJ1 = 0;
-            this.fichasJ2 = 0;
+            this.puntosJ1 = 0;
+            this.puntosJ2 = 0;
             this.dificultad = level;
             this.tablero = new string[this.size][];
             for(int i = 0; i < this.size; i++)
@@ -116,12 +116,12 @@ namespace WebApi_Othello.Models
 
         public int getFichasJ1()
         {
-            return this.fichasJ1;
+            return this.puntosJ1;
         }
 
         public int getFichasJ2()
         {
-            return this.fichasJ2;
+            return this.puntosJ2;
         }
 
         public String getGanador()
@@ -134,41 +134,40 @@ namespace WebApi_Othello.Models
             return this.juegoTerminado;
         }
 
-        public Data jugarSistemaVSistema(int size, int level, String jugadorActual)
+        public Data jugadaSistema(int size, int level, String jugadorActual, List<String> posFichasJ1, List<String> posFichasJ2)
         {
 
             Cargar(size, level, jugadorActual);
+            iniciarMatriz();
+            actualizarFichasJugador(posFichasJ1, true);
+            actualizarFichasJugador(posFichasJ2, false);
             turnoSistema();
 
             Data data = new Data {
-                fichas_J1 = this.fichasJ1,
-                fichas_J2 = this.fichasJ2,
+                puntos_J1 = this.puntosJ1,
+                puntos_J2 = this.puntosJ2,
                 tablero = this.tablero,
-                movidas = this.MovidasPosibles(),
+                juego_Terminado = this.juegoTerminado,
                 jugador_Actual = this.jugador
             };
             return data;
         }
 
-        public Data jugarJugadorVSistema(int size, int level, String jugadorActual, int x, int y, List<String> posFichasJ1, List<String> posFichasJ2)
+        public Data jugadaJugador(int size, int level, String jugadorActual, int x, int y, List<String> posFichasJ1, List<String> posFichasJ2)
         {
             Cargar(size, level, jugadorActual);
+            iniciarMatriz();
             actualizarFichasJugador(posFichasJ1, true);
             actualizarFichasJugador(posFichasJ2, false);
-            if (this.jugador == "1")
-            {
-                realizarJugada(x, y, false);
-            }
-            else
-            {
-                turnoSistema();
-            }
+            
+            realizarJugada(x, y, false);
+
             Data data = new Data
             {
-                fichas_J1 = this.fichasJ1,
-                fichas_J2 = this.fichasJ2,
+                puntos_J1 = this.puntosJ1,
+                puntos_J2 = this.puntosJ2,
                 tablero = this.tablero,
-                movidas = this.MovidasPosibles(),
+                juego_Terminado = this.juegoTerminado,
                 jugador_Actual = this.jugador
             };
             return data;
@@ -208,8 +207,8 @@ namespace WebApi_Othello.Models
                     }
                 }
             }
-            this.fichasJ1 = j1;
-            this.fichasJ2 = j2;
+            this.puntosJ1 = j1;
+            this.puntosJ2 = j2;
         }
 
         public int calcularMejor(Dictionary<int, int> numeros)
@@ -305,7 +304,7 @@ namespace WebApi_Othello.Models
             string[][] clon = clonarTablero(this.tablero);
             realizarJugada(fila, columna, true);
             this.juegoTerminado = false;
-            fichasComidas = this.fichasJ2;
+            fichasComidas = this.puntosJ2;
             //se restauran las fichas y el tablero
             this.tablero = clonarTablero(clon);
             setFichas();
@@ -331,11 +330,11 @@ namespace WebApi_Othello.Models
                 if (this.jugadasPosibles.Count == 0)
                 {//si el rival tampoco movidas posibles
                     this.juegoTerminado = true;//el juego termina
-                    if (this.fichasJ1 > this.fichasJ2)
+                    if (this.puntosJ1 > this.puntosJ2)
                     {
                         this.ganador = "Ha ganado el jugador 1!";
                     }
-                    else if (this.fichasJ2 > this.fichasJ1)
+                    else if (this.puntosJ2 > this.puntosJ1)
                     {
                         this.ganador = "Ha ganado el jugador 2!";
                     }

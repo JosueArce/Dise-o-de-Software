@@ -47,12 +47,22 @@ namespace WebApi_Othello
             );
 
             routes.MapRoute(
-                "realizarJugadaSvS",//ID de la ruta 
-                "realizarJugadaSvS",//URL, ruta de acceso, para acceder al endPoint
+                "realizarJugadaJugador",//ID de la ruta 
+                "realizarJugadaJugador",//URL, ruta de acceso, para acceder al endPoint
                 new
                 {
                     controller = "Juego",//controlador usado(PersonaController)
-                    action = "Realizar_Jugada_Sis_Sis"//metodo a realizar(Realizar_Jugada_Sis_Sis()), está en el controller Juego
+                    action = "Realizar_Jugada_Jugador"//metodo a realizar(Realizar_Jugada_Sis_Sis()), está en el controller Juego
+                }
+            );
+
+            routes.MapRoute(
+                "realizarJugadaSistema",//ID de la ruta 
+                "realizarJugadaSistema",//URL, ruta de acceso, para acceder al endPoint
+                new
+                {
+                    controller = "Juego",//controlador usado(PersonaController)
+                    action = "Realizar_Jugada_Sistema"//metodo a realizar(Realizar_Jugada_Sis_Sis()), está en el controller Juego
                 }
             );
 
